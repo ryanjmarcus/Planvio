@@ -1,0 +1,22 @@
+mat-card {
+  width: calc(100%);
+  height: calc(100%);
+}
+
+table {
+  align: center;
+  table-layout: fixed ;
+  width:70%;
+  margin-left: 5%;
+  margin-right:15%;
+
+}
+td {
+
+}
+
+.mat-progress-bar {
+  width: 50%;
+}
+
+

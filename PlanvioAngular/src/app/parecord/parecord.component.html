@@ -1,0 +1,52 @@
+
+<mat-card class="parecord-card" >
+
+
+  <div class="date" >{{parecord.createdDate | date}}</div>
+
+  <mat-icon class="type">{{activity}}</mat-icon>
+
+  <div class="titlecal">{{parecord.calories}} Cal</div>
+  <div class="titletime">{{parecord.minutes}} Min</div>
+
+  <section class="calories">
+    <mat-progress-bar
+      class="example-margin"
+      [color]="calColor"
+      [mode]="mode"
+      [value]=[calprogressvalue]
+      [bufferValue]="bufferValue">
+    </mat-progress-bar>
+  </section>
+
+  <section class="time">
+    <mat-progress-bar
+      class="example-margin"
+      [color]="minColor"
+      [mode]="mode"
+      [value]=[minprogressvalue]
+      [bufferValue]="bufferValue">
+    </mat-progress-bar>
+  </section>
+
+  <div class="caloriesgoal">{{calprogressvalue | number:'1.0-0'}}%</div>
+  <div class="timegoal">{{minprogressvalue | number:'1.0-0'}}%</div>
+
+<div class="menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Delete or edit">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="edit/{{parecord.createdDate}}/{{parecord.calories}}/{{parecord.minutes}}/{{parecord.activityType}}">
+      <mat-icon>edit</mat-icon>
+      <span>Edit</span>
+    </button>
+       <button mat-menu-item (click)="delete(parecord.createdDate)">
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </mat-menu>
+  </div>
+
+
+</mat-card>

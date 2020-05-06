@@ -1,0 +1,69 @@
+<div class="main-div">
+<mat-card class="example-result-card">
+  <mat-card-title>Add your exercise!</mat-card-title>
+  <mat-card-content>
+
+    <div fxLayout="row">
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [(ngModel)]="addDate" [matDatepicker]="picker" [formControl]="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+    <mat-form-field>
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="addActivity">
+        <mat-option value="0">Running</mat-option>
+        <mat-option value="1">Walking</mat-option>
+        <mat-option value="2">Biking</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+    <div fxLayout="row">
+      <mat-form-field>
+        <mat-label>Minutes</mat-label>
+        <input matInput type="number" [(ngModel)]="addMinutes">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+      <mat-slider
+        [max]="300"
+        [min]="0"
+        [thumbLabel]="true"
+        [(ngModel)]="addMinutes"
+        [vertical]="false">
+      </mat-slider>
+    </div>
+
+    <div fxLayout="row">
+      <mat-form-field>
+        <mat-label>Calories</mat-label>
+        <input matInput type="number" [(ngModel)]="addCalories">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+      <mat-slider
+        [max]="3000"
+        [min]="0"
+        [thumbLabel]="true"
+        [(ngModel)]="addCalories"
+        [vertical]="false">
+      </mat-slider>
+    </div>
+
+    <div align="center">
+      <button mat-raised-button color="accent" (click)="createPARecord()">{{buttonName}}</button>
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

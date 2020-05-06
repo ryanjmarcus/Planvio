@@ -1,0 +1,10 @@
+<div class="pa-record-container" style="padding-top: 75px">
+  <app-course style="padding: 20px 20px 20px 20px;" *ngFor="let course of courses" [course]="course"></app-course>
+</div>
+
+<div class="fab-container">
+  <button mat-flat-button color="accent"  matTooltip="Add new course!" routerLink="/courses/add">
+    <i class="material-icons">add</i>
+  </button>
+</div>
+

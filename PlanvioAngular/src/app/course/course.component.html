@@ -1,0 +1,44 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <img mat-card-avatar src="http://people.cs.vt.edu/~esakia/img/profile.jpg">
+    <mat-card-title style="padding-top: 5px; font-size: 14px;">{{course.title}}</mat-card-title>
+    <mat-card-subtitle>{{course.instructorName}}</mat-card-subtitle>
+    <div class="menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Delete or edit">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="edit/{{course.title}}/{{course.days}}/{{course.startTime}}/{{course.endTime}}/{{course.instructorName}}/{{course.instructorImage}}">
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-card-header>
+
+  <br>
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <div [ngClass]="monday ? 'circle-yes' : 'circle-no'">M</div>
+      <div [ngClass]="tuesday ? 'circle-yes' : 'circle-no'">T</div>
+      <div [ngClass]="wednesday ? 'circle-yes' : 'circle-no'">W</div>
+      <div [ngClass]="thursday ? 'circle-yes' : 'circle-no'">R</div>
+      <div [ngClass]="friday ? 'circle-yes' : 'circle-no'">F</div>
+    </div>
+    <br>
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <div style="font-size: 16px;">{{course.startTime.substr(0, course.startTime.indexOf(' '))}} - {{course.endTime.split(' ').join('')}}</div>
+    </div>
+
+  </mat-card-content>
+
+  <div fxLayoutAlign="center center">
+    <a routerLink="/calendar"><button mat-raised-button color="accent"><mat-icon style="margin-right:10px;">insert_invitation</mat-icon>Calendar</button></a>
+  </div>
+
+</mat-card>
+

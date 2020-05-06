@@ -1,0 +1,76 @@
+<div *ngFor="let user of userRecords; let i = index" class="row">
+  <mat-card>
+    <mat-card-content>
+
+
+
+      <table style="width:100%">
+      <tr>
+        <td><h3>{{i + 1}}</h3></td>
+        <td>
+          <igx-avatar initials="{{user.first.charAt(0) + user.last.charAt(0)}}"
+                      [roundShape]="isCircular"
+                      size="medium"
+                      [bgColor]="getBgColor(i, user.username)"
+                      [color]="color">
+          </igx-avatar>
+        </td>
+
+        <td>
+
+          <ul style="list-style-type:none;">
+            <li>{{user.avgcalories | number:'1.0-0'}} Cal</li>
+            <li>
+            <mat-progress-bar
+              class="example-margin"
+              [color]="calColor"
+              [mode]="mode"
+              [value]="user.avgcalories / user.calgoal * 100"
+              [bufferValue]="bufferValue">
+            </mat-progress-bar>
+            </li>
+            <li> </li>
+
+            <li>{{user.avgcalories / user.calgoal * 100 | number:'1.0-0'}}%</li>
+          </ul>
+        </td>
+
+        <td>
+
+          <ul style="list-style-type:none;">
+            <li>{{user.avgminutes | number:'1.0-0'}} Min</li>
+            <li>
+              <mat-progress-bar
+                class="example-margin"
+                [color]="minColor"
+                [mode]="mode"
+                [value]="user.avgminutes / user.minutegoal * 100"
+                [bufferValue]="bufferValue">
+              </mat-progress-bar>
+            </li>
+            <li> </li>
+
+            <li>{{user.avgminutes / user.minutegoal * 100 | number:'1.0-0'}}%</li>
+          </ul>
+
+        </td>
+
+      </tr>
+      </table>
+
+
+
+
+      </mat-card-content>
+  </mat-card>
+  <mat-divider></mat-divider>
+
+
+
+
+</div>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

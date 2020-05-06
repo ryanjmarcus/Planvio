@@ -1,0 +1,28 @@
+<mat-toolbar *ngIf="isUser" color="accent" class="app-header">
+  <div><a href="http://localhost:4200" target="_blank" class="positronx"><b>Planv.io</b></a></div>
+  <span class="nav-tool-items">
+    <button mat-button routerLink="/"><b>Home</b></button>
+
+  <button mat-button routerLink="/assignments"><b>Calendar</b></button>
+  <button mat-button routerLink="/courses"><b>Courses</b></button>
+    <button mat-button routerLink="/courses"><b>Friends</b></button>
+<!--  TODO: add a button that will show the 'settings' component-->
+    <button mat-button routerLink="/settings"><b>Settings</b></button>
+  </span>
+</mat-toolbar>
+
+
+<!--<mat-toolbar color="accent" class="app-header">-->
+<!--  <div><a href="http://localhost:4200" target="_blank" class="positronx">Planv.io</a></div>-->
+<!--  <span class="nav-tool-items">-->
+<!--    <a mat-button routerLink="home" routerLinkActive="active">Home</a>-->
+<!--    <a mat-button routerLink="calendar" routerLinkActive="active">Calendar</a>-->
+<!--    <a mat-button routerLink="courses" routerLinkActive="active">Courses</a>-->
+<!--      <a mat-button routerLink="friends" routerLinkActive="active">Friends</a>-->
+<!--      <a mat-button routerLink="settings" routerLinkActive="active">Settings</a>-->
+<!--  </span>-->
+<!--</mat-toolbar>-->
+<!--</div>-->
+
+
+<router-outlet></router-outlet>

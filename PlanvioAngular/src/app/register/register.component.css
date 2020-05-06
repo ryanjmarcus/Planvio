@@ -1,0 +1,64 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-half-width {
+  width: 40%;
+}
+
+.example-h2 {
+  margin: 0 8px 16px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.example-margin {
+  margin: 8px;
+}
+
+mat-slider {
+  width: 100%;
+}
+
+.mat-slider-vertical {
+  height: 300px;
+}
+
+.example-result-card {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.example-result-card h2 {
+  margin: 0 8px;
+}
+
+.main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}

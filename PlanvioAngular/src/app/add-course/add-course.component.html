@@ -1,0 +1,71 @@
+<div class="main-div">
+  <mat-card class="example-result-card">
+    <mat-card-title fxLayoutAlign="center">Add Course</mat-card-title>
+    <br>
+    <mat-card-content>
+
+      <!--      export class Course {-->
+      <!--      title: string;-->
+      <!--      days: string;-->
+      <!--      time: string;-->
+      <!--      instructorName: string;-->
+      <!--      instructorImage: string;-->
+      <!--      user: User;-->
+      <!--      }-->
+
+      <form (ngSubmit)="createCourse()" [formGroup]="courseForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Ex. Math" formControlName="title">
+        </mat-form-field>
+
+        <mat-label>Days</mat-label>
+        <div fxLayout="row" fxLayoutGap="10px">
+          <button type="button" (click)="mondayClick()" [ngClass]="monday ? 'circle-yes' : 'circle-no'">M</button>
+          <button type="button" (click)="tuesdayClick()" [ngClass]="tuesday ? 'circle-yes' : 'circle-no'">T</button>
+          <button type="button" (click)="wednesdayClick()" [ngClass]="wednesday ? 'circle-yes' : 'circle-no'">W</button>
+          <button type="button" (click)="thursdayClick()" [ngClass]="thursday ? 'circle-yes' : 'circle-no'">R</button>
+          <button type="button" (click)="fridayClick()" [ngClass]="friday ? 'circle-yes' : 'circle-no'">F</button>
+        </div>
+        <br>
+
+        <div fxLayout="row" fxLayoutGap="10px">
+          <mat-form-field class="example-full-width">
+            <div class="minutes-gap-example">
+              <input matInput placeholder="Start Time" formControlName="startTime"
+                     [ngxTimepicker]="startTime">
+              <ngx-material-timepicker #startTime [minutesGap]="5"></ngx-material-timepicker>
+            </div>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <div class="minutes-gap-example">
+              <input matInput placeholder="End Time" formControlName="endTime"
+                     [ngxTimepicker]="endTime">
+              <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
+            </div>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Instructor Name</mat-label>
+          <input matInput placeholder="Ex. Math" formControlName="instructorName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Instructor Image URL</mat-label>
+          <input matInput placeholder="Ex. Math" formControlName="instructorImage">
+        </mat-form-field>
+
+        <div align="center">
+          <button mat-raised-button color="accent" type="submit">{{buttonName}}</button>
+        </div>
+      </form>
+
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

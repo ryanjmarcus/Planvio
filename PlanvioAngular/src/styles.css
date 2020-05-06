@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.basic-container {
+  padding: 0px;
+}
+
+.circle-yes {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  background: midnightblue;
+  border: 2px solid midnightblue;
+  border-radius: 25px;
+}
+
+.circle-yes:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.circle-no:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.circle-no {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  color: #000;
+  line-height: 40px;
+  text-align: center;
+  background: #fff;
+  border: 2px solid midnightblue;
+  border-radius: 25px;
+}
+
+.circle-blue {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  color: cadetblue;
+  line-height: 40px;
+  text-align: center;
+  background: cadetblue;
+  border: 2px solid cadetblue;
+  border-radius: 25px;
+}
+
+
