@@ -24,6 +24,7 @@ import { AddCourseComponent } from './add-course/add-course.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { CourseComponent } from './course/course.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { FriendsComponent } from './friends/friends.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     CoursesComponent,
     AddCourseComponent,
     CourseComponent,
+    FriendsComponent,
 
   ],
   imports: [
