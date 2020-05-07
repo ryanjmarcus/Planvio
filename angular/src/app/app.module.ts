@@ -26,6 +26,7 @@ import { CourseComponent } from './course/course.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { FriendsComponent } from './friends/friends.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import {AddAssignmentComponent} from './add-assignment/add-assignment.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     CourseComponent,
     FriendsComponent,
     CalendarComponent,
+    AddCourseComponent,
+    AddAssignmentComponent
 
   ],
   imports: [
