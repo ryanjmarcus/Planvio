@@ -14,6 +14,7 @@ import {AddCourseComponent} from "./add-course/add-course.component";
 import {FriendsComponent} from './friends/friends.component';
 import {AddFriendComponent} from './add-friend/add-friend.component';
 import {AddAssignmentComponent} from './add-assignment/add-assignment.component';
+import {CalendarComponent} from "./calendar/calendar.component";
 
 //TODO: add the route to the 'settings' component.
 
@@ -23,14 +24,23 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
   {path: 'settings', component: SettingsComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'rankings', component: RankingsComponent },
+
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.admin]}},
   { path: 'add', component: AddComponent },
+
   { path: 'courses', component: CoursesComponent},
   { path: 'courses/add', component: AddCourseComponent},
-  { path: 'friends', component: FriendsComponent},
-  { path: 'add-friend', component: AddFriendComponent},
-  { path: 'add-assignment', component: AddAssignmentComponent},
   { path: 'courses/edit/:title/:days/:startTime/:endTime/:instructorName/:instructorImage', component: AddCourseComponent},
+
+  { path: 'calendar', component: CalendarComponent},
+  { path: 'calendar/add', component: AddAssignmentComponent},
+
+
+  { path: 'friends', component: FriendsComponent},
+  { path: 'friends/add', component: AddFriendComponent},
+
+
+
   { path: 'edit/:date/:calories/:minutes/:type', component: AddComponent}
   //{ path: '**', redirectTo: '' }
    ];
