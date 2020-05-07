@@ -1,0 +1,38 @@
+<div class="split left">
+  <div class="Title">Friends
+    <div class="friends_container">
+      <mat-card class="friends" *ngFor="let friend of friends">
+        <p class = "names">{{friend.name}}</p>
+        <div class="menu">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Delete or edit">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item class="show" (click)="showAssignments(friend)" >
+              <mat-icon>remove_red_eye</mat-icon>
+              <span>Assignments</span>
+            </button>
+            <button mat-menu-item >
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="Title">Assignments
+    <div class="assign_container">
+      <mat-card class="assignments" *ngFor="let assign of assignments">
+        <p class="due">{{assign.due}}</p>
+        <p class="info">{{assign.class}}: {{assign.name}}</p>
+      </mat-card>
+    </div>
+    <div class="centered">
+    </div>
+  </div>
+</div>
+

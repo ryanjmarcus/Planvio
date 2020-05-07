@@ -1,0 +1,95 @@
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 100px;
+}
+
+.assignments {
+  display: inline-grid;
+  row-gap: 0px;
+  grid-template-areas:
+    "due  notify"
+    "info";
+  margin-bottom: 10px;
+  width: 300px;
+  height: 80px;
+
+}
+
+.due {
+  margin-bottom: 10px;
+}
+
+.info {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.friends_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+
+
+}
+/*All friends list*/
+.friends {
+  display: grid;
+  margin-bottom: 10px;
+  width: 200px;
+  grid-template-areas:
+    "names show"
+
+}
+
+/* Button to show assignments */
+.show {
+  align-self: center;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #111;
+  color: white;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: red;
+}
+
+/*Assignments container */
+.assign_container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(305px, 1fr));
+}
+/* This centers the titles of the sides */
+.Title {
+  text-align: center;
+  color: white;
+  font-size: 10px;
+  margin-bottom: 2px;
+
+}
+
+/* Container for all of the friends */
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
