@@ -12,6 +12,8 @@ import {RankingsComponent} from "./rankings/rankings.component";
 import {CoursesComponent} from "./courses/courses.component";
 import {AddCourseComponent} from "./add-course/add-course.component";
 import {FriendsComponent} from './friends/friends.component';
+import {AddFriendComponent} from './add-friend/add-friend.component';
+import {AddAssignmentComponent} from './add-assignment/add-assignment.component';
 
 //TODO: add the route to the 'settings' component.
 
@@ -26,6 +28,8 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
   { path: 'courses', component: CoursesComponent},
   { path: 'courses/add', component: AddCourseComponent},
   { path: 'friends', component: FriendsComponent},
+  { path: 'add-friend', component: AddFriendComponent},
+  { path: 'add-assignment', component: AddAssignmentComponent},
   { path: 'courses/edit/:title/:days/:startTime/:endTime/:instructorName/:instructorImage', component: AddCourseComponent},
   { path: 'edit/:date/:calories/:minutes/:type', component: AddComponent}
   //{ path: '**', redirectTo: '' }
