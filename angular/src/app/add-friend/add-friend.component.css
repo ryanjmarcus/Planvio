@@ -1,5 +1,5 @@
 .example-result-card h2 {
-  margin: 0 8px;
+  margin: 0 8px 16px;
 }
 
 .main-div{
@@ -13,3 +13,9 @@
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
+
+.add {
+  margin-left: 16px;
+  transform: scale(0.65);
+}
+

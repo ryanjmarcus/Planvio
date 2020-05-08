@@ -6,7 +6,7 @@
         <mat-list>
           <mat-list-item class="users" *ngFor="let user of users">
             <h3 mat-line> {{ user.name }} </h3>
-            <button mat-icon-button (click)="addFriend()">
+            <button mat-raised-button class="add" color="accent" type="submit" (click)="addFriend()">
               <mat-icon class="mat-24">add</mat-icon>
             </button>
           </mat-list-item>
