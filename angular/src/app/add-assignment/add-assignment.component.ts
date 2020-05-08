@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {first} from 'rxjs/operators';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-add-assignment',
@@ -8,13 +8,25 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./add-assignment.component.css']
 })
 export class AddAssignmentComponent implements OnInit {
+  assignmentForm
   date: FormControl = new FormControl({ value: new Date(), disabled: false});
   addDate: Date = new Date();
   addCourse: 'CS3754';
   buttonName = 'Add';
-  constructor() { }
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+    this.assignmentForm = this.formBuilder.group({
+      title: [''],
+      instructorName: [''],
+      instructorImage: [''],
+      startTime: [''],
+      endTime: [''],
+
+    });
+
   }
 
   createAssignment() {

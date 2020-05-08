@@ -1,15 +1,25 @@
 <div class="main-div">
   <mat-card class="example-result-card">
-    <mat-card-title>Add your Assignment!</mat-card-title>
+    <mat-card-title fxLayoutAlign="center">Add Assignment</mat-card-title>
+    <br>
     <mat-card-content>
-      <div fxLayout="row">
-      <mat-form-field class="example-full-width">
-        <mat-label>Title</mat-label>
-        <input matInput placeholder="Ex. Final Group Deliverable" formControlName="title">
-      </mat-form-field>
-      </div>
 
-      <div fxLayout="row">
+      <!--      export class Course {-->
+      <!--      title: string;-->
+      <!--      days: string;-->
+      <!--      time: string;-->
+      <!--      instructorName: string;-->
+      <!--      instructorImage: string;-->
+      <!--      user: User;-->
+      <!--      }-->
+
+      <form (ngSubmit)="createAssignment()" [formGroup]="assignmentForm" class="example-form">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Ex. Final Group Deliverable" formControlName="title">
+        </mat-form-field>
+
         <mat-form-field>
           <mat-label>Select a Course</mat-label>
           <mat-select [(value)]="addCourse">
@@ -18,18 +28,16 @@
             <mat-option value="2">CS3114</mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
-      
-      <div fxLayout="row">
+
+
         <mat-form-field>
           <mat-label>Due Date</mat-label>
           <input matInput [(ngModel)]="addDate" [matDatepicker]="picker" [formControl]="date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-      </div>
 
-      <div fxLayout="row">
+
         <mat-form-field class="example-full-width">
           <div class="minutes-gap-example">
             <input matInput placeholder="Time Due" formControlName="endTime"
@@ -37,12 +45,13 @@
             <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
           </div>
         </mat-form-field>
-      </div>
+
+        <div align="center">
+          <button mat-raised-button color="accent" type="submit">{{buttonName}}</button>
+        </div>
+      </form>
 
 
-      <div align="center">
-        <button mat-raised-button color="accent" (click)="createAssignment()">{{buttonName}}</button>
-      </div>
     </mat-card-content>
   </mat-card>
 </div>
@@ -50,4 +59,3 @@
 <!-- Copyright 2019 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license -->
-

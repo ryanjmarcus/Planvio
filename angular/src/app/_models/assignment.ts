@@ -2,7 +2,8 @@ import { Course } from './course';
 
 export class Assignment {
   title: string;
-  dueAt: string;
-  label: string
-  course: Course;
+  dueDay: string;
+  dueTime: string;
+  label: string;
+  courseTitle: string;
 }
