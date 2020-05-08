@@ -1,20 +1,48 @@
-<mat-grid-list cols="5" rowHeight="1:2">
+<div class="calendar-container" style="padding-top: 75px">
+  <mat-grid-list cols="5" rowHeight="fit" gutterSize="1px">
+    <mat-grid-tile *ngFor="let currentDay of currentWeek; index as dayIndex; last as lastDay">
+      <mat-grid-tile-header>{{ currentDay.toDateString() }}</mat-grid-tile-header>
+      <div class="course-list-container">
+          <ng-container *ngFor="let course of courses">
+            <mat-card *ngIf="course.days[dayIndex]">
+              <mat-card-title>{{ course.title }}</mat-card-title>
+              <mat-card-subtitle>Class</mat-card-subtitle>
+              <mat-card-content>
+                <p>{{ course.startTime }} - {{ course.endTime }}</p>
+              </mat-card-content>
+            </mat-card>
+          </ng-container>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
+
+<!--
   <mat-grid-tile>
     <mat-grid-tile-header>{{ currentMonday.toDateString() }}</mat-grid-tile-header>
     <mat-list>
-      <mat-list-item>CS 3604: 2:30 - 3:45</mat-list-item>
-      <mat-list-item>CS 3724: 4:00 - 5:15</mat-list-item>
-      <mat-list-item>CS 3724 Assignment: Reading Quiz due 11:59</mat-list-item>
+      <mat-list-item *ngFor="let course of courses; last as last">
+        <mat-card *ngIf="course.days[0]">
+          <h4 mat-line>{{ course.title }}</h4>
+
+        </mat-card>
+
+
+      </mat-list-item>
     </mat-list>
   </mat-grid-tile>
+
   <mat-grid-tile>
     <mat-grid-tile-header>{{ currentTuesday.toDateString() }}</mat-grid-tile-header>
     <mat-list>
-      <mat-list-item>CS 3754: 11:00 - 12:15</mat-list-item>
+      <mat-list-item><mat-card>CS 3754: 11:00 - 12:15</mat-card></mat-list-item>
       <mat-list-item>CS 3214: 12:30 - 1:45</mat-list-item>
       <mat-list-item>CS 3214 Assignment: Project 3 due 11:59</mat-list-item>
     </mat-list>
   </mat-grid-tile>
+
   <mat-grid-tile>
     <mat-grid-tile-header>{{ currentWednesday.toDateString() }}</mat-grid-tile-header>
     <mat-list>
@@ -23,6 +51,7 @@
       <mat-list-item>CS 3754 Assignment: Group project due 11:59</mat-list-item>
     </mat-list>
   </mat-grid-tile>
+
   <mat-grid-tile>
     <mat-grid-tile-header>{{ currentThursday.toDateString() }}</mat-grid-tile-header>
     <mat-list>
@@ -32,10 +61,12 @@
       <mat-list-item>CS 3754 Assignment: Ut Prosim due 11:59</mat-list-item>
     </mat-list>
   </mat-grid-tile>
+
   <mat-grid-tile>
     <mat-grid-tile-header>{{ currentFriday.toDateString() }}</mat-grid-tile-header>
     <mat-list>
       <mat-list-item>Nothing to do, Hooray!</mat-list-item>
     </mat-list>
   </mat-grid-tile>
-</mat-grid-list>
+  -->
+

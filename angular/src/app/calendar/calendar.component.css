@@ -1,3 +1,30 @@
-.mat-list-item {
+.mat-grid-list {
+  height: 500px;
+}
+
+.mat-grid-tile {
   font-size: small;
 }
+
+.mat-grid-tile-header {
+  padding-bottom: 25px;
+}
+
+.mat-card {
+  display: grid;
+  width: 100%;
+  height: 120px;
+}
+
+.course-list-container {
+  position: absolute;
+  top: 35px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(305px, 1fr));
+  grid-row-gap: 10px;
+  padding: 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+  /*background-color: #ff00ff;  For debugging */
+}
+
