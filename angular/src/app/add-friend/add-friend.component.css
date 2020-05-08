@@ -1,0 +1,11 @@
+.example-result-card h2 {
+  margin: 0 8px;
+}
+
+.main-div{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

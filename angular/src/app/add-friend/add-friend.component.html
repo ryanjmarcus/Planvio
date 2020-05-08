@@ -1,1 +1,18 @@
-<p>add-friend works!</p>
+<div class ='main-div'>
+  <mat-card class="example-result-card">
+    <mat-card-title fxLayoutAlign="center">Add Friends</mat-card-title>
+    <br>
+    <mat-card-content>
+      <mat-list class="allUsers">
+        <mat-list>
+          <mat-list-item class="users" *ngFor="let user of users">
+            <h3 mat-line> {{ user.name }} </h3>
+            <button mat-icon-button (click)="addFriend()">
+              <mat-icon class="mat-24">add</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
