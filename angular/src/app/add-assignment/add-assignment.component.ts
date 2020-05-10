@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {first} from 'rxjs/operators';
 import {FormBuilder, FormControl} from '@angular/forms';
 import {CourseService} from '../_services/course.service';
-import {Course} from '../_models/course';
 import {NotificationService} from "../_services/notification.service";
 import {AuthService} from "../_services/auth.service";
+import {AssignmentService} from '../_services/assignment.service';
+import {User} from "../_models/user";
 
 @Component({
   selector: 'app-add-assignment',
@@ -12,13 +13,14 @@ import {AuthService} from "../_services/auth.service";
   styleUrls: ['./add-assignment.component.css']
 })
 export class AddAssignmentComponent implements OnInit {
-  assignmentForm
-  dueDay: FormControl = new FormControl({ value: new Date(), disabled: false});
+  assignmentForm;
+  dueDay: FormControl = new FormControl({value: new Date(), disabled: false});
   buttonName = 'Add';
   courses;
   username;
 
-  constructor(private formBuilder: FormBuilder, private courseService: CourseService, private notifService: NotificationService, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private courseService: CourseService, private assignmentService: AssignmentService, private notifService: NotificationService, private authService: AuthService) {
+  }
 
   ngOnInit() {
     this.username = this.authService.currentUserValue.username;
@@ -50,5 +52,12 @@ export class AddAssignmentComponent implements OnInit {
   createAssignment() {
     console.log(this.assignmentForm.value);
     console.log(this.dueDay.value);
+
+    this.assignmentService.add(this.assignmentForm.value.title, this.dueDay.value, this.assignmentForm.value.dueTime, this.assignmentForm.value.courseTitle, this.username).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif(resp, 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
   }
 }

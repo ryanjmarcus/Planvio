@@ -23,6 +23,7 @@ app.use(jwt());
 app.use('/user', require('./routes/user.router'));
 app.use('/parecord', require('./routes/parecord.router'));
 app.use('/course', require('./routes/course.router'));
+app.use('/assignment', require('./routes/assignment.router'));
 app.use(errorHandler);
 
 

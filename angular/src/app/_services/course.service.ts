@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 
 import {AuthService} from './auth.service';
 import {Course} from '../_models/course';
-import {PARecord} from "../_models/PARecord";
 
 
 @Injectable({ providedIn: 'root' })

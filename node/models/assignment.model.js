@@ -12,11 +12,12 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
         title: {type: String, unique: false, required: true},
         dueDay: {type: Date, required: true},
-        dueTime: {type: String, required: true},q
+        dueTime: {type: String, required: true},
         courseTitle: {type: String, required: true},
+        username: {type: String, required: true}
     }
 );
 
 schema.set('toJSON', { virtuals: true });
 
-module.exports = mongoose.model('Course', schema);
+module.exports = mongoose.model('Assignment', schema);

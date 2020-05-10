@@ -5,4 +5,5 @@ export class Assignment {
   dueDay: Date;
   dueTime: string;
   courseTitle: string;
+  username: string;
 }

@@ -8,4 +8,5 @@ module.exports = {
     User: require('../models/user.model'),
     PArecord: require('../models/parecord.model'),
     Course: require('../models/course.model'),
+    Assignment: require('../models/assignment.model'),
 };

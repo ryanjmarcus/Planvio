@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from "../_services/course.service";
+import {AssignmentService} from '../_services/assignment.service';
 import {NotificationService} from "../_services/notification.service";
 import {Course} from "../_models/course";
+import {Assignment} from "../_models/assignment";
 import {AuthService} from "../_services/auth.service";
 
 @Component({
@@ -12,14 +14,16 @@ import {AuthService} from "../_services/auth.service";
 export class CalendarComponent implements OnInit {
   currentWeek: Date[] = [];
   courses: Course[] = [];
+  assignments: Assignment[] = [];
   username: string;
 
-  constructor(private courseService: CourseService, private notifService: NotificationService, private authService: AuthService) {
+  constructor(private courseService: CourseService, private notifService: NotificationService, private authService: AuthService, private assignmentService: AssignmentService) {
   }
 
   ngOnInit() {
     this.username = this.authService.currentUserValue.username;
     this.loadAllCourses(this.username);
+    this.loadAllAssignments(this.username);
     this.getCurrentWeek(new Date());
   }
 
@@ -36,6 +40,19 @@ export class CalendarComponent implements OnInit {
         this.notifService.showNotif(error.toString(), 'warning');
       });
   }
+
+  private loadAllAssignments(username: string) {
+    this.assignmentService.getAll().subscribe(
+      assignments => {
+        this.assignments = assignments;
+        console.log(this.assignments);
+
+      },
+      error => {
+        this.notifService.showNotif(error.toString(), 'warning');
+      });
+  }
+
 
 
   private getMonday(d, x) {
