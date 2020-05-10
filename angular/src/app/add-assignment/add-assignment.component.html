@@ -22,17 +22,15 @@
 
         <mat-form-field>
           <mat-label>Select a Course</mat-label>
-          <mat-select [(value)]="addCourse">
-            <mat-option value="0">CS3754</mat-option>
-            <mat-option value="1">CS2505</mat-option>
-            <mat-option value="2">CS3114</mat-option>
+          <mat-select formControlName="courseTitle">
+            <mat-option *ngFor="let course of courses" [value]="course.title">{{course.title}}</mat-option>
           </mat-select>
         </mat-form-field>
 
 
         <mat-form-field>
           <mat-label>Due Date</mat-label>
-          <input matInput [(ngModel)]="addDate" [matDatepicker]="picker" [formControl]="date">
+          <input matInput [matDatepicker]="picker" [formControl]="dueDay">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -40,7 +38,7 @@
 
         <mat-form-field class="example-full-width">
           <div class="minutes-gap-example">
-            <input matInput placeholder="Time Due" formControlName="endTime"
+            <input matInput placeholder="Time Due" formControlName="dueTime"
                    [ngxTimepicker]="endTime">
             <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
           </div>

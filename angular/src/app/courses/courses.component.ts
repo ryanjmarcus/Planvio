@@ -24,7 +24,7 @@ export class CoursesComponent implements OnInit {
 
   }
 
-  private loadAllCourses(username: string) {
+  loadAllCourses(username: string) {
     this.courseService.getAll().subscribe(
       courses => {
         this.courses = courses.filter(function (course) {

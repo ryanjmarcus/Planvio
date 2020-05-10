@@ -28,3 +28,13 @@
   /*background-color: #ff00ff;  For debugging */
 }
 
+.fab-container {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+

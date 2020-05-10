@@ -11,9 +11,8 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
         title: {type: String, unique: false, required: true},
-        dueDay: {type: String, required: true},
-        dueTime: {type: String, required: true},
-        label: {type: String, required: true},
+        dueDay: {type: Date, required: true},
+        dueTime: {type: String, required: true},q
         courseTitle: {type: String, required: true},
     }
 );
