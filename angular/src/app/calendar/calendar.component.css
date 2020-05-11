@@ -22,19 +22,33 @@
 
 .calendar-container {
   grid-row-gap: 10px;
+  font-size: 50px;
   margin: 10px 75px;
 }
 
 .nav_left {
-  position: fixed;
-  top: 138px;
-  left: 630px;
+  position: absolute;
+  top: 235px;
+  left: 18px;
 }
 
 .nav_right {
-  position: fixed;
-  top: 138px;
-  right: 630px;
+  position: absolute;
+  top: 235px;
+  right: 18px;
+}
+
+.circle-selected {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 44px;
+  color: #fff;
+  line-height: 70px;
+  text-align: center;
+  background: midnightblue;
+  border: 2px solid midnightblue;
+  border-radius: 25px;
 }
 
 .fab-container {

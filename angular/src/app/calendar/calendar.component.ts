@@ -16,6 +16,7 @@ export class CalendarComponent implements OnInit {
   courses: Course[] = [];
   assignments: Assignment[] = [];
   username: string;
+  selectedDay: Date;
 
   constructor(private courseService: CourseService, private notifService: NotificationService,
               private authService: AuthService, private assignmentService: AssignmentService) {
@@ -26,6 +27,7 @@ export class CalendarComponent implements OnInit {
     this.loadAllCourses(this.username);
     this.loadAllAssignments(this.username);
     this.getCurrentWeek(new Date());
+    this.selectedDay = new Date();
   }
 
   private loadAllCourses(username: string) {
@@ -56,7 +58,30 @@ export class CalendarComponent implements OnInit {
       });
   }
 
+  changeSelectedDay(day: Date) {
+    this.selectedDay = day;
+  }
 
+  nextWeek() {
+    this.getCurrentWeek(this.selectedDay.setDate(this.selectedDay.getDate() + 7));
+    this.selectedDay = this.currentWeek[0];
+  }
+
+  previousWeek() {
+    this.getCurrentWeek(this.selectedDay.setDate(this.selectedDay.getDate() - 7));
+    this.selectedDay = this.currentWeek[0];
+  }
+
+  currentMonthTitle() {
+    let title: string;
+    title = this.currentWeek[0].toLocaleDateString('en', { month: 'short' });
+    if (this.currentWeek[6].getMonth() !== this.currentWeek[0].getMonth()) {
+      title += ' - ';
+      title += this.currentWeek[6].toLocaleDateString('en', { month: 'short' });
+    }
+    title += ' ' + this.currentWeek[6].getFullYear();
+    return title;
+  }
 
   private getSunday(d, x) {
     d = new Date(d);
