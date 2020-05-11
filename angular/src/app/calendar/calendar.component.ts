@@ -41,10 +41,12 @@ export class CalendarComponent implements OnInit {
       });
   }
 
-  private loadAllAssignments(username: string) {
+  loadAllAssignments(username: string) {
     this.assignmentService.getAll().subscribe(
       assignments => {
-        this.assignments = assignments;
+        this.assignments = assignments.filter(function (assignment) {
+          return assignment.username === username;
+        });
         console.log(this.assignments);
 
       },
