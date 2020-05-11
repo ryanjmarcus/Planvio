@@ -1,34 +1,34 @@
-<!--<div class="split left">-->
-<!--  <div class ='main-div'>-->
-<!--    <mat-card class="example-result-card">-->
-<!--      <mat-card-title fxLayoutAlign="center"> Friends</mat-card-title>-->
-<!--      <mat-card-subtitle></mat-card-subtitle>-->
-<!--      <mat-card-content>-->
-<!--        <mat-list>-->
+<div class="split left">
+  <div class ='main-div'>
+    <mat-card class="example-result-card">
+      <mat-card-title fxLayoutAlign="center"> Friends</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-content>
+        <mat-list>
 
-<!--          <mat-list-item class="users" *ngFor="let friend of friends">-->
+          <mat-list-item class="users" *ngFor="let friend of friends">
 
-<!--            <igx-avatar initials="RM"-->
-<!--                        [roundShape]="true"-->
-<!--                        size="small"-->
-<!--                        [bgColor]=pink-->
-<!--                        [color]="white">-->
-<!--            </igx-avatar>-->
+            <igx-avatar initials="{{friend.firstName.charAt(0)}}{{friend.lastName.charAt(0)}}"
+                        [roundShape]="true"
+                        size="small"
+                        [bgColor]=pink
+                        [color]="white">
+            </igx-avatar>
 
-<!--            <div mat-line>-->
-<!--              <b>{{friend.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>-->
+            <div mat-line>
+              <b>{{friend.firstName}} {{friend.lastName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
 
-<!--            </div>-->
-<!--            <p mat-line>@{{friend.name.split(' ').join('').toLowerCase()}}</p>-->
+            </div>
+            <p mat-line>@{{friend.username.toLowerCase()}}</p>
 
-<!--            <mat-divider></mat-divider>-->
-<!--          </mat-list-item>-->
+            <mat-divider></mat-divider>
+          </mat-list-item>
 
-<!--        </mat-list>-->
-<!--      </mat-card-content>-->
-<!--    </mat-card>-->
-<!--  </div>-->
-<!--</div>-->
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
 
 <hr />
 
