@@ -7,7 +7,6 @@ module.exports = {
 
 
 function createFriend(req, res, next) {
-    console.log(req.body);
     friendService.addFriend(req.body)
         .then(friend => res.json(friend))
         .catch(err => next(err));

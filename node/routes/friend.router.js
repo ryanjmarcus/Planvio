@@ -5,8 +5,8 @@ const Role = require('../_helpers/role');
 const authorize = require('../_helpers/authorize');
 
 
-router.post('/add', friendController.createFriend());
-router.get('/getAll', friendController.getFriends());
+router.post('/add', friendController.createFriend);
+router.get('/getAll', friendController.getFriends);
 
 
 module.exports = router;
