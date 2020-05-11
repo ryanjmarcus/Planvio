@@ -1,38 +1,60 @@
 <div class="split left">
-  <div class="Title">Friends
-    <div class="friends_container">
-      <mat-card class="friends" *ngFor="let friend of friends">
-        <p class = "names">{{friend.name}}</p>
-        <div class="menu">
-          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Delete or edit">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item class="show" (click)="showAssignments(friend)" >
-              <mat-icon>remove_red_eye</mat-icon>
-              <span>Assignments</span>
-            </button>
-            <button mat-menu-item >
-              <mat-icon>delete</mat-icon>
-              <span>Delete</span>
-            </button>
-          </mat-menu>
-        </div>
-      </mat-card>
-    </div>
+  <div class ='main-div'>
+    <mat-card class="example-result-card">
+      <mat-card-title fxLayoutAlign="center"> Friends</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-content>
+        <mat-list>
+
+          <mat-list-item class="users" *ngFor="let friend of friends">
+
+            <igx-avatar initials="RM"
+                        [roundShape]="true"
+                        size="small"
+                        [bgColor]=pink
+                        [color]="white">
+            </igx-avatar>
+
+            <div mat-line>
+              <b>{{friend.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+
+            </div>
+            <p mat-line>@{{friend.name.split(' ').join('').toLowerCase()}}</p>
+
+            <mat-divider></mat-divider>
+          </mat-list-item>
+
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 
+<hr />
+
 <div class="split right">
-  <div class="Title">Assignments
-    <div class="assign_container">
-      <mat-card class="assignments" *ngFor="let assign of assignments">
-        <p class="due">{{assign.due}}</p>
-        <p class="info">{{assign.class}}: {{assign.name}}</p>
-      </mat-card>
-    </div>
-    <div class="centered">
-    </div>
+  <div class ='main-div'>
+    <mat-card class="example-result-card">
+      <mat-card-title fxLayoutAlign="center"> Calendar</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-content>
+  <mat-list>
+    <div mat-subheader>Folders</div>
+    <mat-list-item *ngFor="let folder of folders">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <div mat-line>{{folder.name}}</div>
+      <div mat-line> {{folder.updated | date}} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Notes</div>
+    <mat-list-item *ngFor="let note of notes">
+      <mat-icon mat-list-icon>note</mat-icon>
+      <div mat-line>{{note.name}}</div>
+      <div mat-line> {{note.updated | date}} </div>
+    </mat-list-item>
+  </mat-list>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 

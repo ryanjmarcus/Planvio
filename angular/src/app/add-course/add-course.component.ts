@@ -100,6 +100,7 @@ export class AddCourseComponent implements OnInit {
 
 
   createCourse() {
+
     this.courseService.add(this.courseForm.value.title, [this.monday, this.tuesday, this.wednesday, this.thursday, this.friday], this.courseForm.value.startTime, this.courseForm.value.endTime, this.courseForm.value.instructorName, this.courseForm.value.instructorImage, this.user.username, this.date).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif(resp, 'response');
