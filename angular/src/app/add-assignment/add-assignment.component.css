@@ -51,6 +51,16 @@ mat-slider {
   align-items: center;
 }
 
+.fab-container-back {
+  position: fixed;
+  top: 85px;
+  left: 15px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
 .row {
   display: flex;
 }
