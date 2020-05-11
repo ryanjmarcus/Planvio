@@ -17,7 +17,6 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { SettingsComponent } from './settings/settings.component';
 import { AddComponent } from './add/add.component';
-import { RankingsComponent } from './rankings/rankings.component';
 import { IgxAvatarModule } from 'igniteui-angular';
 import { CoursesComponent } from './courses/courses.component';
 import { AddCourseComponent } from './add-course/add-course.component';
@@ -41,7 +40,6 @@ import { AddAssignmentComponent} from './add-assignment/add-assignment.component
     RegisterComponent,
     SettingsComponent,
     AddComponent,
-    RankingsComponent,
     CoursesComponent,
     AddCourseComponent,
     CourseComponent,

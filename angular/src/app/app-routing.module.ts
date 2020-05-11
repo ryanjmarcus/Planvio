@@ -8,7 +8,6 @@ import {RegisterComponent} from './register/register.component';
 import {Role} from './_models/role';
 import {SettingsComponent} from './settings/settings.component';
 import {AddComponent} from "./add/add.component";
-import {RankingsComponent} from "./rankings/rankings.component";
 import {CoursesComponent} from "./courses/courses.component";
 import {AddCourseComponent} from "./add-course/add-course.component";
 import {FriendsComponent} from './friends/friends.component';
@@ -23,7 +22,6 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
   {path: 'login', component: LoginComponent},
   {path: 'settings', component: SettingsComponent},
   { path: 'register', component: RegisterComponent },
-  { path: 'rankings', component: RankingsComponent },
 
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.admin]}},
   { path: 'add', component: AddComponent },

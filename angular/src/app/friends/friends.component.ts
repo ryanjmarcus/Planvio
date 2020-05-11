@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../_services/user.service";
+import {NotificationService} from "../_services/notification.service";
+import {User} from '../_models/user';
 
 export interface Section {
   name: string;
@@ -11,6 +14,9 @@ export interface Section {
   styleUrls: ['./friends.component.css']
 })
 export class FriendsComponent implements OnInit {
+
+  users: User[] = [];
+
   assignments = [{class: 'CS3754', due: 'May 20th, 2020', name: 'Cloud Project'},
     {class: 'CS3714', due: 'May 20th, 2020', name: 'Final App'}];
 
@@ -49,22 +55,22 @@ export class FriendsComponent implements OnInit {
     {name: 'Drew Perry', pid: 'drewperry'}];
 
 
-  constructor() {
+  constructor(private userService: UserService, private notifService: NotificationService) {
   }
 
   ngOnInit() {
+    this.loadAllUsers();
   }
 
-  // Gets a users friends
-  getFriends(user) {
-    return user.friends;
-  }
-  //Shows all assignments
-  showAssignments(user) {
-    return user.assignments;
+  private loadAllUsers() {
+    this.userService.getAll().subscribe(
+      users => {
+        this.users = users;
+        console.log(users);
+      },
+      error => {
+        this.notifService.showNotif(error.toString(), 'warning');
+      });
   }
 
-  addFriend(user) {
-
-  }
 }

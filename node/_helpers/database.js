@@ -9,4 +9,5 @@ module.exports = {
     PArecord: require('../models/parecord.model'),
     Course: require('../models/course.model'),
     Assignment: require('../models/assignment.model'),
+    Friend: require('../models/friend.model')
 };
