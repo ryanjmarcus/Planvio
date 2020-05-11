@@ -10,6 +10,10 @@
     <form class="example-form">
       <mat-card-content>
         <br>
+        <div class="info">
+          <p>You are in {{totalCourses()}} courses</p>
+          <p>You have {{this.friends.size()}} friends</p>
+        </div>
       </mat-card-content>
       <div fxLayoutAlign="center center">
         <button (click)="logOut()" style="margin:10px;" mat-raised-button color="accent"><mat-icon style="margin-right:10px;">account_circle</mat-icon>Sign Out</button>
