@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../_services/user.service";
 import {NotificationService} from "../_services/notification.service";
 import {User} from '../_models/user';
+import {FriendService} from "../_services/friend.service";
+import {Friend} from "../_models/friend";
+import {AuthService} from "../_services/auth.service";
 
 export interface Section {
   name: string;
   updated: Date;
+
 }
 
 @Component({
@@ -14,8 +18,9 @@ export interface Section {
   styleUrls: ['./friends.component.css']
 })
 export class FriendsComponent implements OnInit {
-
+  friends: Friend[] = [];
   users: User[] = [];
+  username;
 
   assignments = [{class: 'CS3754', due: 'May 20th, 2020', name: 'Cloud Project'},
     {class: 'CS3714', due: 'May 20th, 2020', name: 'Final App'}];
@@ -45,18 +50,27 @@ export class FriendsComponent implements OnInit {
     }
   ];
 
-  friends = [{name: 'Jake Thomas', pid: 'jthomas'},
-    {name: 'Frank Hills', pid: 'fhills'},
-    {name: 'Lauren Jackson', pid: 'ljackson'},
-    {name: 'Ryan Marcus', pid: 'ryanmarcus'},
-    {name: 'Danny Torney', pid: 'dannytorney'},
-    {name: 'Drew Perry', pid: 'drewperry'}];
 
-
-  constructor(private userService: UserService, private notifService: NotificationService) {
+  constructor(private userService: UserService, private notifService: NotificationService, private friendService: FriendService, private authService: AuthService) {
   }
 
   ngOnInit() {
+    this.username = this.authService.currentUserValue.username;
+    this.loadAllFriends(this.username);
+  }
+
+  loadAllFriends(username: string) {
+    this.friendService.getAll().subscribe(
+      friends => {
+        this.friends = friends.filter(function (friend) {
+          return friend.addedBy === username;
+        });
+        console.log(this.friends);
+
+      },
+      error => {
+        this.notifService.showNotif(error.toString(), 'warning');
+      });
   }
 
 
