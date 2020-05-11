@@ -17,7 +17,8 @@ export class CalendarComponent implements OnInit {
   assignments: Assignment[] = [];
   username: string;
 
-  constructor(private courseService: CourseService, private notifService: NotificationService, private authService: AuthService, private assignmentService: AssignmentService) {
+  constructor(private courseService: CourseService, private notifService: NotificationService,
+              private authService: AuthService, private assignmentService: AssignmentService) {
   }
 
   ngOnInit() {
@@ -55,17 +56,17 @@ export class CalendarComponent implements OnInit {
 
 
 
-  private getMonday(d, x) {
+  private getSunday(d, x) {
     d = new Date(d);
     let day = d.getDay(),
-      diff = d.getDate() - day + (day == 0 ? -6:1);
+      diff = d.getDate() - day;
     return new Date(d.setDate(diff + x));
   }
 
   private getCurrentWeek(d) {
     let i;
-    for (i = 0; i < 5; i++) {
-      this.currentWeek[i] = this.getMonday(d, i);
+    for (i = 0; i < 7; i++) {
+      this.currentWeek[i] = this.getSunday(d, i);
     }
   }
 
