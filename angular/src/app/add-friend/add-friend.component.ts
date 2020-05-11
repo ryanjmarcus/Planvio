@@ -38,6 +38,10 @@ export class AddFriendComponent implements OnInit {
       });
   }
 
+  actionMethod(event: any) {
+    event.target.disabled = true;
+  }
+
   addFriend(addUsername: string, addFirstName: string, addLastName: string) {
     this.friendService.add(addUsername, addFirstName, addLastName, this.username).pipe(first()).subscribe(
       resp => {
