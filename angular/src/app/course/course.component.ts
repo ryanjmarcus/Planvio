@@ -15,17 +15,23 @@ export class CourseComponent implements OnInit {
   wednesday: boolean;
   thursday: boolean;
   friday: boolean;
+  instructorImage: string;
+  encodedInstructorImage: string;
 
   constructor() { }
 
   ngOnInit() {
-
-
+        this.course.instructorImage = decodeURIComponent(this.course.instructorImage);
         this.monday = this.course.days[0];
         this.tuesday = this.course.days[1];
         this.wednesday = this.course.days[2];
         this.thursday = this.course.days[3];
         this.friday = this.course.days[4];
+        this.encodedInstructorImage = encodeURIComponent(this.course.instructorImage);
   }
+
+
+
+
 
 }

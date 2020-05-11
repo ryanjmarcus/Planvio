@@ -58,7 +58,7 @@ export class AddCourseComponent implements OnInit {
         this.courseForm.setValue({
           title: params.title,
           instructorName: params.instructorName,
-          instructorImage: params.instructorImage,
+          instructorImage: decodeURIComponent(params.instructorImage),
           startTime: params.startTime,
           endTime: params.endTime
         })
@@ -101,7 +101,9 @@ export class AddCourseComponent implements OnInit {
 
   createCourse() {
 
-    this.courseService.add(this.courseForm.value.title, [this.monday, this.tuesday, this.wednesday, this.thursday, this.friday], this.courseForm.value.startTime, this.courseForm.value.endTime, this.courseForm.value.instructorName, this.courseForm.value.instructorImage, this.user.username, this.date).pipe(first()).subscribe(
+    console.log(encodeURIComponent(this.courseForm.value.instructorImage));
+
+    this.courseService.add(this.courseForm.value.title, [this.monday, this.tuesday, this.wednesday, this.thursday, this.friday], this.courseForm.value.startTime, this.courseForm.value.endTime, this.courseForm.value.instructorName, encodeURIComponent(this.courseForm.value.instructorImage), this.user.username, this.date).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif(resp, 'response');
       }, error => {

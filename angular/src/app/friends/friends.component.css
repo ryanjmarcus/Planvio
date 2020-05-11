@@ -56,7 +56,7 @@
 /* Control the left side */
 .left {
   left: 0;
-  width: 24%;
+  width: 30%;
   padding-left: 50px;
 }
 
@@ -89,6 +89,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
 }
 
 /* Style the image inside the centered container, if needed */

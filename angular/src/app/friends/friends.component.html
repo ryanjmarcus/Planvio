@@ -8,12 +8,15 @@
 
           <mat-list-item class="users" *ngFor="let friend of friends">
 
-            <igx-avatar initials="{{friend.firstName.charAt(0)}}{{friend.lastName.charAt(0)}}"
-                        [roundShape]="true"
-                        size="small"
-                        [bgColor]=pink
-                        [color]="white">
-            </igx-avatar>
+            <div class="example-button-container">
+              <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+
+              <button mat-mini-fab style="margin-left: 15px">
+                <mat-icon>arrow_forward</mat-icon>
+              </button>
+            </div>
 
             <div mat-line>
               <b>{{friend.firstName}} {{friend.lastName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
@@ -22,7 +25,9 @@
             <p mat-line>@{{friend.username.toLowerCase()}}</p>
 
             <mat-divider></mat-divider>
+
           </mat-list-item>
+          <mat-list-item></mat-list-item>
 
         </mat-list>
       </mat-card-content>
@@ -35,8 +40,8 @@
 <div class="split right">
   <div class ='main-div'>
     <mat-card class="example-result-card">
-      <mat-card-title fxLayoutAlign="center"> Calendar</mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-title fxLayoutAlign="center">Danny Torney</mat-card-title>
+      <mat-card-subtitle fxLayoutAlign="center">@dannytorney</mat-card-subtitle>
       <mat-card-content>
   <mat-list>
     <div mat-subheader>Folders</div>
@@ -59,7 +64,7 @@
 </div>
 
 <div class="fab-container">
-  <button mat-flat-button color="accent"  matTooltip="Add new course!" routerLink="/friends/add">
+  <button mat-flat-button color="accent"  matTooltip="Add new friend!" routerLink="/friends/add">
     <i class="material-icons">add</i>
   </button>
 </div>
