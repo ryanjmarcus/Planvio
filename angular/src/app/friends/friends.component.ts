@@ -45,8 +45,6 @@ export class FriendsComponent implements OnInit {
     }
   ];
 
-
-
   friends = [{name: 'Jake Thomas', pid: 'jthomas'},
     {name: 'Frank Hills', pid: 'fhills'},
     {name: 'Lauren Jackson', pid: 'ljackson'},
@@ -59,18 +57,8 @@ export class FriendsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadAllUsers();
   }
 
-  private loadAllUsers() {
-    this.userService.getAll().subscribe(
-      users => {
-        this.users = users;
-        console.log(users);
-      },
-      error => {
-        this.notifService.showNotif(error.toString(), 'warning');
-      });
-  }
+
 
 }

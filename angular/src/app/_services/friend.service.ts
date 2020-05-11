@@ -14,7 +14,7 @@ export class FriendService {
     return this.http.get<Friend[]>(`http://localhost:3030/friend/getAll`);
   }
 
-  add(addUsername: string, addFirstName: boolean[], addLastName: string, addAddedBy: string) {
+  add(addUsername: string, addFirstName: string, addLastName: string, addAddedBy: string) {
     const friend = {
       username: addUsername,
       firstName: addFirstName,

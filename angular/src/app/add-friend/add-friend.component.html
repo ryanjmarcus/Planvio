@@ -4,10 +4,10 @@
     <mat-card-subtitle></mat-card-subtitle>
     <mat-card-content>
         <mat-list>
-          <mat-list-item class="users" *ngFor="let user of users">
-            <div mat-line><b>{{user.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
-            <p mat-line>@{{user.name.split(' ').join('').toLowerCase()}}</p>
-            <button mat-raised-button class="add" color="accent" type="submit" (click)="addFriend()">
+          <mat-list-item class="users" *ngFor="let nonFriend of nonFriends">
+            <div mat-line><b>{{nonFriend.firstName}}&nbsp;{{nonFriend.lastName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+            <p mat-line>@{{nonFriend.username.toLowerCase()}}</p>
+            <button mat-raised-button class="add" color="accent" type="submit" (click)="addFriend(nonFriend.username, nonFriend.firstName, nonFriend.lastName)">
               <mat-icon class="mat-48">add</mat-icon>
             </button>
             <mat-divider></mat-divider>
