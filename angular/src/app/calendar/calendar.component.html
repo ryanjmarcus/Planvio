@@ -1,17 +1,38 @@
-<div class="current-month-container" style="padding-top: 75px">
-  <mat-icon class="nav_left">navigate_before</mat-icon>
-  <h2>{{ currentWeek[0].toLocaleDateString('en', { month: 'short' }) }} {{ currentWeek[0].getFullYear() }}</h2>
-  <mat-icon class="nav_right">navigate_next</mat-icon>
+<div class="current-month-container" style="padding-top: 35px">
+  <h2>{{ currentMonthTitle() }}</h2>
 </div>
 
-<div class="calendar-container" style="padding-top: 10px">
+<div class="calendar-container">
+  <mat-icon class="nav_left" [inline]="true" (click)="previousWeek()">navigate_before</mat-icon>
   <mat-grid-list cols="7" rowHeight="fit" gutterSize="3px">
-    <mat-grid-tile *ngFor="let currentDay of currentWeek; index as dayIndex; last as lastDay">
-      <mat-grid-tile-header>{{ currentDay.toDateString().split(' ')[0] }}</mat-grid-tile-header>
-      <h2>{{ currentDay.getDate() }}</h2>
-    </mat-grid-tile>
+    <ng-container *ngFor="let currentDay of currentWeek">
+      <mat-grid-tile (click)="changeSelectedDay(currentDay)">
+        <mat-grid-tile-header>{{ currentDay.toDateString().split(' ')[0] }}</mat-grid-tile-header>
+        <div class="circle-selected" *ngIf="selectedDay.toDateString() === currentDay.toDateString(); else notSelected">
+          {{ currentDay.getDate() }}
+        </div>
+        <ng-template #notSelected>
+          <h2>{{ currentDay.getDate() }}</h2>
+        </ng-template>
+      </mat-grid-tile>
+    </ng-container>
   </mat-grid-list>
+  <mat-icon class="nav_right" [inline]="true" (click)="nextWeek()">navigate_next</mat-icon>
 </div>
+
+<div class="assignment-container">
+  <ng-container *ngFor="let course of courses">
+    <mat-card *ngIf="course.days[selectedDay.getDay() - 1]">
+      <mat-card-title>{{ course.title }}</mat-card-title>
+      <mat-card-subtitle>Class</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{ course.startTime }} - {{ course.endTime }}</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
+
+
 
 <div class="fab-container">
   <button mat-flat-button color="accent"  matTooltip="Add new assignment!" routerLink="/calendar/add">

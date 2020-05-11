@@ -3,13 +3,17 @@
 
   <mat-card class="box">
     <mat-card-header>
-      <mat-card-title>Daniel Trebisky</mat-card-title>
+      <mat-card-title>{{this.firstName}} {{this.lastName}} </mat-card-title>
       <img style="height: 100px; width: 100px; margin-bottom: 5px" mat-card-avatar src="http://www.utsa.edu/today/images/students/paulmartinez.jpg">
     </mat-card-header>
 
     <form class="example-form">
       <mat-card-content>
         <br>
+        <div class="info">
+          <p>You are in {{totalCourses()}} courses</p>
+          <p>You have {{this.friends.size()}} friends</p>
+        </div>
       </mat-card-content>
       <div fxLayoutAlign="center center">
         <button (click)="logOut()" style="margin:10px;" mat-raised-button color="accent"><mat-icon style="margin-right:10px;">account_circle</mat-icon>Sign Out</button>

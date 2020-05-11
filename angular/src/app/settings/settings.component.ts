@@ -3,6 +3,7 @@ import { UserService } from '../_services/user.service';
 import { AuthService } from '../_services/auth.service';
 import { NotificationService } from '../_services/notification.service';
 import {Router} from '@angular/router';
+import {CourseService} from '../_services/course.service';
 
 @Component({
   selector: 'app-settings',
@@ -10,22 +11,19 @@ import {Router} from '@angular/router';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  calories: Number = 0;
-  minutes: Number = 0;
 
+  firstName;
+  lastName;
+  friends;
+  courses;
 
-
-  constructor(private userService: UserService, private authService: AuthService, private notifService: NotificationService, private router: Router) {
+  constructor(private userService: UserService, private authService: AuthService, private notifService: NotificationService, private router: Router, private courseService: CourseService) {
 
   }
 
   ngOnInit() {
-    this.userService.getGoals(this.authService.currentUserValue.username).subscribe( data => {
-      console.log(data);
-      this.calories = data["caloriegoal"];
-      this.minutes = data["minutegoal"];
-    });
-
+    this.firstName = this.authService.currentUserValue.firstName;
+    this.lastName = this.authService.currentUserValue.lastName;
   }
 
   logOut() {
@@ -33,11 +31,12 @@ export class SettingsComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  save() {
-    console.log('Save was clicked');
-    this.userService.setGoals(this.calories, this.minutes).subscribe(
-      res => this.notifService.showNotif(res, 'response'),
-            error => {this.notifService.showNotif(error); });
+  totalCourses() {
+    this.courses = this.courseService.getAll();
+    return this.courses.size();
   }
-
+  save() {
+    // pass
+  }
 }
+
