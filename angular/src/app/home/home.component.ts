@@ -48,17 +48,17 @@ export class HomeComponent implements OnInit {
 
   }
 
-  async generateData() {
+   generateData() {
     // Add Friends
 
-     await this.friendService.add('dannytorney', 'Danny', 'Torney', this.username).pipe(first()).subscribe(
+     this.friendService.add('dannytorney', 'Danny', 'Torney', this.username).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Friend', 'Success!');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    await this.friendService.add('ryanmarcus', 'Ryan', 'Marcus', this.username).pipe(first()).subscribe(
+    this.friendService.add('ryanmarcus', 'Ryan', 'Marcus', this.username).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Friend', 'Success!');
       }, error => {
@@ -67,42 +67,42 @@ export class HomeComponent implements OnInit {
 
     // Add Courses
 
-    await this.courseService.add('CS 3754: Cloud Software Development', [true, false, true, false, false], '11:00 AM', '12:15 PM', 'Andrey Esakia', encodeURIComponent('http://people.cs.vt.edu/~esakia/img/profile.jpg'), this.username, new Date()).pipe(first()).subscribe(
+    this.courseService.add('CS 3754: Cloud Software Development', [true, false, true, false, false], '11:00 AM', '12:15 PM', 'Andrey Esakia', encodeURIComponent('http://people.cs.vt.edu/~esakia/img/profile.jpg'), this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Course', 'response');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    await this.courseService.add('CS 3714: Mobile Software Development', [false, true, false, true, false], '10:00 AM', '11:25 AM', 'Osman Balci', encodeURIComponent('https://manta.cs.vt.edu/balci/Site/logo/OsmanBalci.jpg'), this.username, new Date()).pipe(first()).subscribe(
+    this.courseService.add('CS 3714: Mobile Software Development', [false, true, false, true, false], '10:00 AM', '11:25 AM', 'Osman Balci', encodeURIComponent('https://manta.cs.vt.edu/balci/Site/logo/OsmanBalci.jpg'), this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Course', 'response');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    await this.courseService.add('CS 3724: Human Comp Interaction', [false, true, false, true, false], '4:00 PM', '5:15 PM', 'Andrew Kulak', encodeURIComponent('https://www.andrewkulak.com/images/avatar.jpg'), this.username, new Date()).pipe(first()).subscribe(
+    this.courseService.add('CS 3724: Human Comp Interaction', [false, true, false, true, false], '4:00 PM', '5:15 PM', 'Andrew Kulak', encodeURIComponent('https://www.andrewkulak.com/images/avatar.jpg'), this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Course', 'response');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    await this.courseService.add('MATH 3134: Applied Combinatorics', [false, true, false, true, false], '2:00 PM', '3:15 PM', 'Steve Hammer', encodeURIComponent('https://www.math.vt.edu/content/math_vt_edu/en/people/faculty/hammer-steve/jcr:content/bio-image.transform/xl-medium/image.jpg'), this.username, new Date()).pipe(first()).subscribe(
+    this.courseService.add('MATH 3134: Applied Combinatorics', [false, true, false, true, false], '2:00 PM', '3:15 PM', 'Steve Hammer', encodeURIComponent('https://www.math.vt.edu/content/math_vt_edu/en/people/faculty/hammer-steve/jcr:content/bio-image.transform/xl-medium/image.jpg'), this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Course', 'response');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    await this.courseService.add('CS 3604: Intro to Professionalism', [true, false, true, false, false], '2:30 PM', '3:45 PM', 'Scott McCrickard', encodeURIComponent('http://people.cs.vt.edu/~mccricks/images/mccrickard-small.jpg'), this.username, new Date()).pipe(first()).subscribe(
+    this.courseService.add('CS 3604: Intro to Professionalism', [true, false, true, false, false], '2:30 PM', '3:45 PM', 'Scott McCrickard', encodeURIComponent('http://people.cs.vt.edu/~mccricks/images/mccrickard-small.jpg'), this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Course', 'response');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    await this.courseService.add('CS 2506: Intro to Computer Org II', [true, false, true, false, true], '1:25 PM', '2:15 PM', 'William McQuain', encodeURIComponent('http://people.cs.vt.edu/~mcquain/mcquainSmall.jpg'), this.username, new Date()).pipe(first()).subscribe(
+    this.courseService.add('CS 2506: Intro to Computer Org II', [true, false, true, false, true], '1:25 PM', '2:15 PM', 'William McQuain', encodeURIComponent('http://people.cs.vt.edu/~mcquain/mcquainSmall.jpg'), this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Course', 'response');
       }, error => {
@@ -174,6 +174,55 @@ export class HomeComponent implements OnInit {
       }, error => {
         this.notifService.showNotif(error);
       });
+
+    // Add friends courses
+
+     this.courseService.add('CS 3754: Cloud Software Development', [true, false, true, false, false], '11:00 AM', '12:15 PM', 'Andrey Esakia', encodeURIComponent('http://people.cs.vt.edu/~esakia/img/profile.jpg'), 'dannytorney', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.courseService.add('MUS 1114: Music Theory Fundamentals', [false, true, false, true, false], '1:00 PM', '2:25 PM', 'Easter Wallace', encodeURIComponent('https://www.performingarts.vt.edu/images/uploads/faculty-staff/Wallace_Easter2015-1.jpg'), 'dannytorney', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.courseService.add('MATH 1226: Principles of Calculus II', [false, true, false, true, false], '3:00 PM', '4:15 PM', 'Cameron Withrow', encodeURIComponent('https://www.math.vt.edu/content/math_vt_edu/en/people/faculty/withrow-camron/jcr:content/bio-image.transform/xl-medium/image.jpg'), 'dannytorney', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     // Add friends assignments
+
+     this.assignmentService.add('Music Quiz 14: Pitches', dateOne, '11:00 PM', 'MUS 1114: Music Theory Fundamentals', 'dannytorney', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.assignmentService.add('Final Exam MC', dateOne, '8:30 PM', 'MATH 1226: Principles of Calculus II', 'dannytorney', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.assignmentService.add('Planvio UML Diagram', dateTwo, '11:55 PM', 'CS 3754: Cloud Software Development', 'dannytorney', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+
+
   }
 }
 
