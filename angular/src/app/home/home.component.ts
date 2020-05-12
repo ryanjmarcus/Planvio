@@ -119,7 +119,7 @@ export class HomeComponent implements OnInit {
         this.notifService.showNotif(error);
       });
 
-    this.assignmentService.add('Final Group Deliverable', dateOne, '1:45 PM', 'CS 3754: Cloud Software Dev', this.username, new Date()).pipe(first()).subscribe(
+    this.assignmentService.add('Final Group Deliverable', dateOne, '1:45 PM', 'CS 3754: Cloud Software Development', this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Assignment', 'response');
       }, error => {
