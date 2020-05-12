@@ -23,7 +23,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.username = this.authService.currentUserValue.username;
+    this.username = this.authService.currentUserValue.username; 
     this.loadAllCourses(this.username);
     this.loadAllAssignments(this.username);
     this.getCurrentWeek(new Date());
@@ -41,13 +41,12 @@ export class CalendarComponent implements OnInit, OnChanges {
         this.courses = courses.filter(function (course) {
           return course.username === username;
         });
+        this.sortCourses();
         console.log(this.courses);
-
       },
       error => {
         this.notifService.showNotif(error.toString(), 'warning');
       });
-    this.sortCourses();
   }
 
   loadAllAssignments(username: string) {
@@ -56,13 +55,12 @@ export class CalendarComponent implements OnInit, OnChanges {
         this.assignments = assignments.filter(function (assignment) {
           return assignment.username === username;
         });
+        this.sortAssignments();
         console.log(this.assignments);
-
       },
       error => {
         this.notifService.showNotif(error.toString(), 'warning');
       });
-    this.sortAssignments();
   }
 
   changeSelectedDay(day: Date) {
@@ -110,38 +108,65 @@ export class CalendarComponent implements OnInit, OnChanges {
     }
   }
 
-  timeStringToDate(time: string) {
-    let date = new Date();
-    let numHours = parseInt(time.split(':')[0], 10);
-    if (time.includes('PM') && numHours !== 12) {
-      numHours += 12;
-    }
-    date.setHours(numHours);
-    date.setMinutes(parseInt(time.split(':')[1].substr(0, 2), 10));
-    return date;
+  sortCourses() {
+    this.courses.sort(this.sortCoursesHelper);
+    console.log(this.courses);
   }
 
-  compareTimeStrings(a: string, b: string) {
-    let a_date = this.timeStringToDate(a);
-    let b_date = this.timeStringToDate(b);
+  sortAssignments() {
+    this.assignments.sort(this.sortAssignmentsHelper);
+    console.log(this.assignments);
+  }
+
+  sortAssignmentsHelper(a: Assignment, b: Assignment) {
+    let a_time = a.dueTime;
+    let a_date = new Date();
+    let a_numHours = parseInt(a_time.split(':')[0], 10);
+    if (a_time.includes('PM') && a_numHours !== 12) {
+      a_numHours += 12;
+    }
+    a_date.setHours(a_numHours);
+    a_date.setMinutes(parseInt(a_time.split(':')[1].substr(0, 2), 10));
+
+    let b_time = b.dueTime;
+    let b_date = new Date();
+    let b_numHours = parseInt(b_time.split(':')[0], 10);
+    if (b_time.includes('PM') && b_numHours !== 12) {
+      b_numHours += 12;
+    }
+    b_date.setHours(b_numHours);
+    b_date.setMinutes(parseInt(b_time.split(':')[1].substr(0, 2), 10));
+
     let result = a_date.getHours() > b_date.getHours() ? 1 : a_date.getHours() < b_date.getHours() ? -1 : 0;
     if(result === 0)
       result = a_date.getMinutes() > b_date.getMinutes() ? 1 : a_date.getMinutes() < b_date.getMinutes() ? -1 : 0;
     return result;
   }
 
-  sortCourses() {
-    this.courses.sort(function(a, b) {
-      return this.compareTimeStrings(a.startTime, b.startTime);
-    });
-    console.log(this.courses);
-  }
 
-  sortAssignments() {
-    this.assignments.sort(function(a, b) {
-      return this.compareTimeStrings(a.dueTime, b.dueTime);
-    });
-    console.log(this.assignments);
+  sortCoursesHelper(a: Course, b: Course) {
+    let a_time = a.startTime;
+    let a_date = new Date();
+    let a_numHours = parseInt(a_time.split(':')[0], 10);
+    if (a_time.includes('PM') && a_numHours !== 12) {
+      a_numHours += 12;
+    }
+    a_date.setHours(a_numHours);
+    a_date.setMinutes(parseInt(a_time.split(':')[1].substr(0, 2), 10));
+
+    let b_time = b.startTime;
+    let b_date = new Date();
+    let b_numHours = parseInt(b_time.split(':')[0], 10);
+    if (b_time.includes('PM') && b_numHours !== 12) {
+      b_numHours += 12;
+    }
+    b_date.setHours(b_numHours);
+    b_date.setMinutes(parseInt(b_time.split(':')[1].substr(0, 2), 10));
+
+    let result = a_date.getHours() > b_date.getHours() ? 1 : a_date.getHours() < b_date.getHours() ? -1 : 0;
+    if(result === 0)
+      result = a_date.getMinutes() > b_date.getMinutes() ? 1 : a_date.getMinutes() < b_date.getMinutes() ? -1 : 0;
+    return result;
   }
 
 
