@@ -42,8 +42,9 @@
     <mat-card class="example-result-card">
       <mat-card-title fxLayoutAlign="center">{{friendFirstName}} {{friendLastName}}</mat-card-title>
       <mat-card-subtitle fxLayoutAlign="center">@{{friendUsername}}</mat-card-subtitle>
-      <mat-card-content>
-        <div mat-line>Courses</div>
+    </mat-card>
+    <mat-card style="margin-top: 10px">
+      <mat-card-title>Courses</mat-card-title>
         <mat-list>
           <ng-container *ngFor="let course of courses">
             <mat-list-item class="courses">
@@ -56,9 +57,9 @@
             </mat-list-item>
           </ng-container>
         </mat-list>
-
-
-        <div mat-line>Assignments</div>
+    </mat-card>
+    <mat-card style="margin-top: 10px">
+      <mat-card-title>Assignments</mat-card-title>
         <mat-list>
           <ng-container *ngFor="let assignment of assignments">
             <mat-list-item class="assignments">
@@ -74,9 +75,9 @@
           </ng-container>
 
         </mat-list>
-
-      </mat-card-content>
     </mat-card>
+
+
   </div>
 </div>
 
