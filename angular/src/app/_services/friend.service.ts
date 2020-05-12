@@ -22,7 +22,6 @@ export class FriendService {
     };
 
     console.log(friend);
-
     return this.http.post(`http://localhost:3030/friend/add`, friend);
 
   }

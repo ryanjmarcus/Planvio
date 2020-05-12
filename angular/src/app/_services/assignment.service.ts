@@ -20,6 +20,9 @@ export class AssignmentService {
 
 
 add(addTitle: string, addDueDay: Date, addDueTime: string, addCourseTitle: string, addUsername: string, addCreateTime: Date) {
+  const random = Math.random() * 1000;
+  addCreateTime.setMilliseconds(random);
+
     const assignment = {
       title: addTitle,
       dueDay: addDueDay,
@@ -30,7 +33,6 @@ add(addTitle: string, addDueDay: Date, addDueTime: string, addCourseTitle: strin
     };
 
     console.log(assignment);
-
     return this.http.post(`http://localhost:3030/assignment/add`, assignment);
 
   }

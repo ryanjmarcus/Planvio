@@ -20,6 +20,9 @@ export class CourseService {
   }
 
   add(addTitle: string, addDays: boolean[], addStartTime: string, addEndTime: string, addInstructorName: string, addInstructorImage: string, addUsername: string, addDate: Date) {
+    const random = Math.random() * 1000;
+    addDate.setMilliseconds(random);
+
     const course = {
       title: addTitle,
       days: addDays,
@@ -32,7 +35,6 @@ export class CourseService {
     };
 
     console.log(course);
-
     return this.http.post(`http://localhost:3030/course/add`, course);
 
   }
