@@ -175,7 +175,7 @@ export class HomeComponent implements OnInit {
         this.notifService.showNotif(error);
       });
 
-    // Add friends courses
+    // Add Danny courses
 
      this.courseService.add('CS 3754: Cloud Software Development', [true, false, true, false, false], '11:00 AM', '12:15 PM', 'Andrey Esakia', encodeURIComponent('http://people.cs.vt.edu/~esakia/img/profile.jpg'), 'dannytorney', new Date()).pipe(first()).subscribe(
        resp => {
@@ -198,7 +198,7 @@ export class HomeComponent implements OnInit {
          this.notifService.showNotif(error);
        });
 
-     // Add friends assignments
+     // Add Danny assignments
 
      this.assignmentService.add('Music Quiz 14: Pitches', dateOne, '11:00 PM', 'MUS 1114: Music Theory Fundamentals', 'dannytorney', new Date()).pipe(first()).subscribe(
        resp => {
@@ -220,6 +220,62 @@ export class HomeComponent implements OnInit {
        }, error => {
          this.notifService.showNotif(error);
        });
+
+     // Add Sarah Courses
+
+     this.courseService.add('CS 3754: Cloud Software Development', [true, false, true, false, false], '11:00 AM', '12:15 PM', 'Andrey Esakia', encodeURIComponent('http://people.cs.vt.edu/~esakia/img/profile.jpg'), 'sarahpeyton', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.courseService.add('CS 3714: Mobile Software Development', [false, true, false, true, false], '10:00 AM', '11:25 AM', 'Osman Balci', encodeURIComponent('https://manta.cs.vt.edu/balci/Site/logo/OsmanBalci.jpg'), 'sarahpeyton', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.courseService.add('CS 3724: Human Comp Interaction', [false, true, false, true, false], '4:00 PM', '5:15 PM', 'Andrew Kulak', encodeURIComponent('https://www.andrewkulak.com/images/avatar.jpg'), 'sarahpeyton', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.courseService.add('GEOG 1014: Intro to African Studies', [false, true, false, true, false], '2:00 PM', '3:15 PM', 'John Boyer', encodeURIComponent('https://geography.vt.edu/content/dam/geography_vt_edu/Boyer-final.jpg'), 'sarahpeyton', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     //
+     this.assignmentService.add('Tutorial 13: iOS NavigationView', dateOne, '8:00 PM', 'CS 3714: Mobile Software Development', 'sarahpeyton', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.assignmentService.add('Final Group Deliverable', dateOne, '1:45 PM', 'CS 3754: Cloud Software Development', 'sarahpeyton', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.assignmentService.add('African Map Assignment', dateTwo, '11:55 PM', 'GEOG 1014: Intro to African Studies', 'sarahpeyton', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+
+
+
 
 
 
