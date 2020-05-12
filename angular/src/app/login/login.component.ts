@@ -59,7 +59,7 @@ export class LoginComponent {
 
   generateData() {
 
-    this.username = 'ryanmarcus';
+    this.username = 'demo';
     this.password = 'planvio';
 
     // Add all users
@@ -159,7 +159,25 @@ export class LoginComponent {
       }, error => {
         this.notifService.showNotif(error);
       });
-  }
+
+
+  const userSeven = {
+    role: Role.admin,
+    firstName: 'John',
+    lastName: 'Smith',
+    email: 'demo@gmail.com',
+    username: 'demo',
+    password: 'planvio'
+  };
+
+  this.userService.register(userSeven).pipe(first()).subscribe(
+    resp => {
+  this.notifService.showNotif('Generated Data', 'Success!');
+}, error => {
+  this.notifService.showNotif(error);
+});
+
+}
     //Add Friends
 
 
