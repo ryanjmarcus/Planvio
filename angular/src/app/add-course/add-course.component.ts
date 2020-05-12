@@ -23,9 +23,9 @@ export class AddCourseComponent implements OnInit {
   wednesday: boolean;
   thursday: boolean;
   friday: boolean;
-  date: Date;
   days: [string, string, string, string, string];
   buttonName: string;
+  createdAt: Date;
 
   constructor(private courseService: CourseService, private notifService: NotificationService, private formBuilder: FormBuilder, private authService: AuthService, private route: ActivatedRoute) {
   }
@@ -33,7 +33,6 @@ export class AddCourseComponent implements OnInit {
   ngOnInit() {
 
     this.buttonName = 'Add';
-    this.date = new Date();
     this.user = this.authService.currentUserValue;
 
     this.monday = false;
@@ -72,7 +71,9 @@ export class AddCourseComponent implements OnInit {
         this.friday = this.days[4] === 'true';
 
         this.buttonName = 'Save';
-
+        this.createdAt = params.createdAt;
+      } else {
+        this.createdAt = new Date();
       }
     });
 
@@ -103,7 +104,7 @@ export class AddCourseComponent implements OnInit {
 
     console.log(encodeURIComponent(this.courseForm.value.instructorImage));
 
-    this.courseService.add(this.courseForm.value.title, [this.monday, this.tuesday, this.wednesday, this.thursday, this.friday], this.courseForm.value.startTime, this.courseForm.value.endTime, this.courseForm.value.instructorName, encodeURIComponent(this.courseForm.value.instructorImage), this.user.username, this.date).pipe(first()).subscribe(
+    this.courseService.add(this.courseForm.value.title, [this.monday, this.tuesday, this.wednesday, this.thursday, this.friday], this.courseForm.value.startTime, this.courseForm.value.endTime, this.courseForm.value.instructorName, encodeURIComponent(this.courseForm.value.instructorImage), this.user.username, this.createdAt).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif(resp, 'response');
       }, error => {

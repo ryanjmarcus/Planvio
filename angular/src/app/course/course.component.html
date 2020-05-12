@@ -8,12 +8,12 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="edit/{{course.title}}/{{course.days}}/{{course.startTime}}/{{course.endTime}}/{{course.instructorName}}/{{encodedInstructorImage}}">
+        <button mat-menu-item routerLink="edit/{{course.title}}/{{course.days}}/{{course.startTime}}/{{course.endTime}}/{{course.instructorName}}/{{encodedInstructorImage}}/{{course.createdAt}}">
           <mat-icon>edit</mat-icon>
           <span>Edit</span>
         </button>
         <button mat-menu-item>
-          <mat-icon>delete</mat-icon>
+          <mat-icon >delete</mat-icon>
           <span>Delete</span>
         </button>
       </mat-menu>

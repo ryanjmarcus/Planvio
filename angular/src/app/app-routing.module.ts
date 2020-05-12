@@ -26,7 +26,7 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
 
   { path: 'courses', component: CoursesComponent},
   { path: 'courses/add', component: AddCourseComponent},
-  { path: 'courses/edit/:title/:days/:startTime/:endTime/:instructorName/:instructorImage', component: AddCourseComponent},
+  { path: 'courses/edit/:title/:days/:startTime/:endTime/:instructorName/:instructorImage/:createdAt', component: AddCourseComponent},
 
   { path: 'calendar', component: CalendarComponent},
   { path: 'calendar/add', component: AddAssignmentComponent},
