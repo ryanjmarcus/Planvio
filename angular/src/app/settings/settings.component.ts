@@ -28,7 +28,6 @@ export class SettingsComponent implements OnInit {
     this.lastName = this.authService.currentUserValue.lastName;
     this.username = this.authService.currentUserValue.username;
     this.loadAllCourses(this.username);
-
     }
 
     loadAllCourses(username: string) {

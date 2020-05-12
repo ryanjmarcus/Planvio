@@ -7,7 +7,6 @@ import {AdminComponent} from './admin/admin.component';
 import {RegisterComponent} from './register/register.component';
 import {Role} from './_models/role';
 import {SettingsComponent} from './settings/settings.component';
-import {AddComponent} from "./add/add.component";
 import {CoursesComponent} from "./courses/courses.component";
 import {AddCourseComponent} from "./add-course/add-course.component";
 import {FriendsComponent} from './friends/friends.component';
@@ -24,7 +23,6 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
   { path: 'register', component: RegisterComponent },
 
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.admin]}},
-  { path: 'add', component: AddComponent },
 
   { path: 'courses', component: CoursesComponent},
   { path: 'courses/add', component: AddCourseComponent},
@@ -37,9 +35,6 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
   { path: 'friends', component: FriendsComponent},
   { path: 'friends/add', component: AddFriendComponent},
 
-
-
-  { path: 'edit/:date/:calories/:minutes/:type', component: AddComponent}
   //{ path: '**', redirectTo: '' }
    ];
 
