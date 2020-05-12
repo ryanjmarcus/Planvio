@@ -23,7 +23,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.username = this.authService.currentUserValue.username; 
+    this.username = this.authService.currentUserValue.username;
     this.loadAllCourses(this.username);
     this.loadAllAssignments(this.username);
     this.getCurrentWeek(new Date());
