@@ -33,7 +33,7 @@
 </div>
 
 <div class="assignment-container">
-  <ng-container *ngFor="let assignment of assignments; index as assIndex">
+  <ng-container *ngFor="let assignment of assignments">
     <mat-card *ngIf="equalDays(assignment.dueDay, selectedDay)">
       <mat-card-title>{{ assignment.title }}</mat-card-title>
       <mat-card-subtitle>{{ assignment.courseTitle }}</mat-card-subtitle>
