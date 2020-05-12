@@ -9,7 +9,11 @@ import {FormControl} from "@angular/forms";
 })
 export class CourseComponent implements OnInit {
   @Input() course: Course;
-  @Output() deleteCourse: EventEmitter<any> = new EventEmitter();
+  @Output() deleteEvent: EventEmitter<any> = new EventEmitter();
+
+  callParent(): void {
+    this.deleteEvent.next(this);
+  }
 
   monday: boolean;
   tuesday: boolean;
