@@ -13,6 +13,7 @@ import {first} from 'rxjs/operators';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit, OnChanges {
+
   currentWeek: Date[] = [];
   courses: Course[] = [];
   assignments: Assignment[] = [];
@@ -24,11 +25,11 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.username = this.authService.currentUserValue.username;
     this.loadAllCourses(this.username);
     this.loadAllAssignments(this.username);
     this.getCurrentWeek(new Date());
     this.selectedDay = new Date();
+    this.username = this.authService.currentUserValue.username;
   }
 
   ngOnChanges() {
