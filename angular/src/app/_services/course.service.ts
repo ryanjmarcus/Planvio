@@ -20,8 +20,6 @@ export class CourseService {
   }
 
   add(addTitle: string, addDays: boolean[], addStartTime: string, addEndTime: string, addInstructorName: string, addInstructorImage: string, addUsername: string, addDate: Date) {
-    const random = Math.random() * 1000;
-    addDate.setMilliseconds(random);
 
     const course = {
       title: addTitle,
