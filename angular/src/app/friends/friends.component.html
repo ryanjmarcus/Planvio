@@ -11,15 +11,13 @@
         <mat-list>
           <mat-list-item class="users" *ngFor="let friend of friends">
 
-            <div class="example-button-container">
-              <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                <mat-icon>delete</mat-icon>
-              </button>
 
-              <button mat-mini-fab style="margin-left: 15px" (click)="setSelectedFriend(friend.username, friend.firstName, friend.lastName)">
+
+
+              <button mat-mini-fab color="primary" (click)="setSelectedFriend(friend.username, friend.firstName, friend.lastName)">
                 <mat-icon>arrow_forward</mat-icon>
               </button>
-            </div>
+
 
             <div mat-line>
               <b>{{friend.firstName}} {{friend.lastName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
