@@ -72,7 +72,7 @@
               <b>{{ course.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </div>
             <p mat-line>{{ course.instructorName }} </p>
-            <p mat-line>{{ course.startTime }} - {{ course.endTime }}</p>
+            <p mat-line><b>When: </b>{{getCourseString(course)}} at {{course.startTime.substr(0, course.startTime.indexOf(' '))}} - {{course.endTime.split(' ').join('')}}</p>
             <mat-divider></mat-divider>
           </mat-list-item>
         </ng-container>

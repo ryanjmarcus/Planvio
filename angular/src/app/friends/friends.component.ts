@@ -28,6 +28,7 @@ export class FriendsComponent implements OnInit, OnChanges {
   friendUsername;
   friendFirstName;
   friendLastName;
+  dayString;
 
   assignments: Assignment[] = [];
   courses: Course[] = [];
@@ -64,12 +65,36 @@ export class FriendsComponent implements OnInit, OnChanges {
       });
   }
 
+  getCourseString(course: Course) {
+    this.dayString = '';
+
+    if (course.days[0]) {
+      this.dayString += 'M';
+    }
+    if (course.days[1]) {
+      this.dayString += 'T';
+    }
+    if (course.days[2]) {
+      this.dayString += 'W';
+    }
+    if (course.days[3]) {
+      this.dayString += 'R';
+    }
+    if (course.days[4]) {
+      this.dayString += 'F';
+    }
+    return this.dayString;
+
+
+  }
+
   setSelectedFriend(username: string, firstName: string, lastName: string) {
     this.friendUsername = username;
     this.friendFirstName = firstName;
     this.friendLastName = lastName;
     this.loadAllAssignments(this.friendUsername);
     this.loadAllCourses(this.friendUsername);
+
   }
 
   private loadAllCourses(username: string) {
