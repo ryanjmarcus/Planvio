@@ -237,13 +237,6 @@ export class HomeComponent implements OnInit {
          this.notifService.showNotif(error);
        });
 
-     this.courseService.add('CS 3724: Human Comp Interaction', [false, true, false, true, false], '4:00 PM', '5:15 PM', 'Andrew Kulak', encodeURIComponent('https://www.andrewkulak.com/images/avatar.jpg'), 'sarahpeyton', new Date()).pipe(first()).subscribe(
-       resp => {
-         this.notifService.showNotif('Added Course', 'response');
-       }, error => {
-         this.notifService.showNotif(error);
-       });
-
      this.courseService.add('GEOG 1014: Intro to African Studies', [false, true, false, true, false], '2:00 PM', '3:15 PM', 'John Boyer', encodeURIComponent('https://geography.vt.edu/content/dam/geography_vt_edu/Boyer-final.jpg'), 'sarahpeyton', new Date()).pipe(first()).subscribe(
        resp => {
          this.notifService.showNotif('Added Course', 'response');
