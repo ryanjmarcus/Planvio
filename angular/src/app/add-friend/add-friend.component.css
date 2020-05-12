@@ -5,10 +5,14 @@
 }
 
 .main-div{
-  height: 100vh;
+  padding-top: 200px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+.meas {
+  width: 300px;
 }
 
 .Title {

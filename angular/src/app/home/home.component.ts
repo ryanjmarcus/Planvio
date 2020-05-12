@@ -144,6 +144,36 @@ export class HomeComponent implements OnInit {
         this.notifService.showNotif(error);
       });
 
+    this.assignmentService.add('Test 3: Graph Theory', dateTwo, '8:00 PM', 'MATH 3134: Applied Combinatorics', this.username, new Date()).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
+
+    this.assignmentService.add('Final Ethics Write-Up', dateTwo, '11:00 PM', 'CS 3604: Intro to Professionalism', this.username, new Date()).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
+
+    const dateThree = new Date();
+    dateThree.setDate(dateTwo.getDate() + 1);
+
+    this.assignmentService.add('Tutorial 14: iOS MapKit', dateThree, '2:00 PM', 'CS 3714: Mobile Software Development', this.username, new Date()).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
+
+    this.assignmentService.add('Planv.io UML Diagram', dateThree, '5:00 PM', 'CS 3754: Cloud Software Development', this.username, new Date()).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
   }
 }
 
