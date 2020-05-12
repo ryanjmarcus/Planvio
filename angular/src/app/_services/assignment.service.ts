@@ -20,9 +20,6 @@ export class AssignmentService {
 
 
 add(addTitle: string, addDueDay: Date, addDueTime: string, addCourseTitle: string, addUsername: string, addCreateTime: Date) {
-  const random = Math.random() * 1000;
-  addCreateTime.setMilliseconds(random);
-
     const assignment = {
       title: addTitle,
       dueDay: addDueDay,
