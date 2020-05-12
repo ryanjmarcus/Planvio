@@ -34,5 +34,5 @@ async function addAssignment(assignment) {
 }
 
 async function deleteAssignment(assignment) {
-    return await Assignment.deleteOne(assignment);
+    return await Assignment.deleteOne({createdAt: assignment.createdAt});
 }

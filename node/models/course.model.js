@@ -19,7 +19,7 @@ const schema = new Schema({
             instructorName: {type: String, required: true},
             instructorImage: {type: String, required: true},
             username: {type: String, required: true},
-            createdDate: { type: Date, default: Date.now }
+            createdAt: { type: Date, default: Date.now }
     }
 );
 

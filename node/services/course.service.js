@@ -14,13 +14,20 @@ async function getAllCourses(){
 
 
 async function addCourse(course) {
+    if (await Course.findOne({username: course.username, createdAt: course.createdAt})) {
+        await Course.updateOne({
+            username: course.username,
+            createdAt: course.createdAt
+        }, {$set: {title: course.title, days: course.days, startTime: course.startTime, endTime: course.endTime, instructorName: course.instructorName, instructorImage: course.instructorImage}})
+        return 'Edited!';
+    } else {
+        console.log(course);
 
-    console.log(course);
+        course = new Course(course)
 
-    course = new Course(course)
-
-    // save the record
-    await course.save();
-    return 'Added!'
+        // save the record
+        await course.save();
+        return 'Added!'
+    }
 }
 

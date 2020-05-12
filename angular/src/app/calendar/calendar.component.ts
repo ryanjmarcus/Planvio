@@ -5,6 +5,7 @@ import {NotificationService} from "../_services/notification.service";
 import {Course} from "../_models/course";
 import {Assignment} from "../_models/assignment";
 import {AuthService} from "../_services/auth.service";
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-calendar',
@@ -50,8 +51,10 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   deleteAssignment(assign: Assignment) {
-    this.assignmentService.delete(assign);
-    this.assignments = this.assignments.splice(this.assignments.indexOf(assign), 1);
+    this.assignmentService.delete(assign).pipe(first()).subscribe( () => {
+      this.assignments = null;
+      this.loadAllAssignments(this.username);
+    });
   }
 
   loadAllAssignments(username: string) {
