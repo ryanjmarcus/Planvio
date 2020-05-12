@@ -75,7 +75,7 @@ export class LoginComponent {
 
     this.userService.register(userOne).pipe(first()).subscribe(
       resp => {
-        this.notifService.showNotif('Generated Data', 'Success!');
+        this.notifService.showNotif('Added User', 'Success!');
       }, error => {
         this.notifService.showNotif(error);
       });
@@ -91,7 +91,7 @@ export class LoginComponent {
 
     this.userService.register(userTwo).pipe(first()).subscribe(
       resp => {
-        this.notifService.showNotif('Generated Data', 'Success!');
+        this.notifService.showNotif('Added User', 'Success!');
       }, error => {
         this.notifService.showNotif(error);
       });
@@ -107,7 +107,7 @@ export class LoginComponent {
 
     this.userService.register(userThree).pipe(first()).subscribe(
       resp => {
-        this.notifService.showNotif('Generated Data', 'Success!');
+        this.notifService.showNotif('Added User', 'Success!');
       }, error => {
         this.notifService.showNotif(error);
       });
@@ -123,7 +123,7 @@ export class LoginComponent {
 
     this.userService.register(userFour).pipe(first()).subscribe(
       resp => {
-        this.notifService.showNotif('Generated Data', 'Success!');
+        this.notifService.showNotif('Added User', 'Success!');
       }, error => {
         this.notifService.showNotif(error);
       });
@@ -139,7 +139,7 @@ export class LoginComponent {
 
     this.userService.register(userFive).pipe(first()).subscribe(
       resp => {
-        this.notifService.showNotif('Generated Data', 'Success!');
+        this.notifService.showNotif('Added User', 'Success!');
       }, error => {
         this.notifService.showNotif(error);
       });
@@ -155,7 +155,7 @@ export class LoginComponent {
 
     this.userService.register(userSix).pipe(first()).subscribe(
       resp => {
-        this.notifService.showNotif('Generated Data', 'Success!');
+        this.notifService.showNotif('Added User', 'Success!');
       }, error => {
         this.notifService.showNotif(error);
       });
@@ -172,7 +172,7 @@ export class LoginComponent {
 
   this.userService.register(userSeven).pipe(first()).subscribe(
     resp => {
-  this.notifService.showNotif('Generated Data', 'Success!');
+  this.notifService.showNotif('Added User', 'Success!');
 }, error => {
   this.notifService.showNotif(error);
 });
