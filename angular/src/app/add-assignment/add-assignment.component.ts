@@ -46,7 +46,9 @@ export class AddAssignmentComponent implements OnInit {
 
         this.buttonName = 'Save';
         this.dueDay = new FormControl({value: new Date(params.dueDay), disabled: false});
-
+        this.createdAt = params.createdAt;
+      } else {
+        this.createdAt = new Date();
       }
     });
 
@@ -73,7 +75,7 @@ export class AddAssignmentComponent implements OnInit {
     console.log(this.assignmentForm.value);
     console.log(this.dueDay.value);
 
-    this.assignmentService.add(this.assignmentForm.value.title, this.dueDay.value, this.assignmentForm.value.dueTime, this.assignmentForm.value.courseTitle, this.username, new Date()).pipe(first()).subscribe(
+    this.assignmentService.add(this.assignmentForm.value.title, this.dueDay.value, this.assignmentForm.value.dueTime, this.assignmentForm.value.courseTitle, this.username, this.createdAt).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif(resp, 'response');
       }, error => {
