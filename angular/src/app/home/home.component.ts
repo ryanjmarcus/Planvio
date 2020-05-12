@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   bgColor = 'cornflowerblue';
   color = 'white';
   isCircular = true;
+  done = false;
 
   constructor(
     private notifService: NotificationService,
@@ -43,8 +44,9 @@ export class HomeComponent implements OnInit {
     this.lastName = this.authService.currentUserValue.lastName;
     this.date = Date();
 
-    if(this.username === 'demo') {
+    if(this.username === 'demo' && !this.done) {
       this.generateData();
+      this.done = true;
     }
 
   }
