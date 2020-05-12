@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import {AuthService} from './auth.service';
 import {Course} from '../_models/course';
+import {Assignment} from "../_models/assignment";
 
 
 @Injectable({ providedIn: 'root' })
@@ -12,6 +13,10 @@ export class CourseService {
 
   getAll() {
     return this.http.get<Course[]>(`http://localhost:3030/course/getAll`);
+  }
+
+  delete(course: Course) {
+    return this.http.post(`http://localhost:3030/course/delete`, course);
   }
 
   add(addTitle: string, addDays: boolean[], addStartTime: string, addEndTime: string, addInstructorName: string, addInstructorImage: string, addUsername: string, addDate: Date) {

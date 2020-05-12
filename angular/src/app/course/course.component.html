@@ -13,7 +13,7 @@
           <span>Edit</span>
         </button>
         <button mat-menu-item>
-          <mat-icon >delete</mat-icon>
+          <mat-icon (click)="this.deleteCourse.emit()">delete</mat-icon>
           <span>Delete</span>
         </button>
       </mat-menu>

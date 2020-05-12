@@ -2,7 +2,8 @@ const courseService = require('../services/course.service')
 
 module.exports = {
     createCourse,
-    getCourses
+    getCourses,
+    deleteCourse
 };
 
 
@@ -19,4 +20,11 @@ function getCourses(req,res,next){
         .then(courses => res.json(courses))
         .catch(err => next(err));
 
+}
+
+function deleteCourse(req, res, next) {
+    console.log(req.body);
+    courseService.deleteCourse(req.body)
+        .then(assignment => res.json(assignment))
+        .catch(err => next(err));
 }
