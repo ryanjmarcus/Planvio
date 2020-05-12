@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   courses;
 
 
-  bgColor = 'pink';
+  bgColor = 'cornflowerblue';
   color = 'white';
   isCircular = true;
 
