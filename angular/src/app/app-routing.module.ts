@@ -19,22 +19,22 @@ import {CalendarComponent} from "./calendar/calendar.component";
 // tslint:disable-next-line:max-line-length
 const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'settings', component: SettingsComponent},
+  {path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent },
 
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.admin]}},
 
-  { path: 'courses', component: CoursesComponent},
-  { path: 'courses/add', component: AddCourseComponent},
-  { path: 'courses/edit/:title/:days/:startTime/:endTime/:instructorName/:instructorImage/:createdAt', component: AddCourseComponent},
+  { path: 'courses', component: CoursesComponent, canActivate: [AuthGuard]},
+  { path: 'courses/add', component: AddCourseComponent, canActivate: [AuthGuard]},
+  { path: 'courses/edit/:title/:days/:startTime/:endTime/:instructorName/:instructorImage/:createdAt', component: AddCourseComponent, canActivate: [AuthGuard]},
 
-  { path: 'calendar', component: CalendarComponent},
-  { path: 'calendar/add', component: AddAssignmentComponent},
-  { path: 'calendar/edit/:title/:dueDay/:dueTime/:courseTitle/:username/:createdAt', component: AddAssignmentComponent},
+  { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
+  { path: 'calendar/add', component: AddAssignmentComponent, canActivate: [AuthGuard]},
+  { path: 'calendar/edit/:title/:dueDay/:dueTime/:courseTitle/:username/:createdAt', component: AddAssignmentComponent, canActivate: [AuthGuard]},
 
 
-  { path: 'friends', component: FriendsComponent},
-  { path: 'friends/add', component: AddFriendComponent},
+  { path: 'friends', component: FriendsComponent, canActivate: [AuthGuard]},
+  { path: 'friends/add', component: AddFriendComponent, canActivate: [AuthGuard]},
 
   //{ path: '**', redirectTo: '' }
    ];
