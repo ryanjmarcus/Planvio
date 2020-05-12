@@ -8,12 +8,14 @@
     <ng-container *ngFor="let currentDay of currentWeek">
       <mat-grid-tile (click)="changeSelectedDay(currentDay)">
         <mat-grid-tile-header fxLayoutAlign="center">{{ currentDay.toDateString().split(' ')[0] }}</mat-grid-tile-header>
-        <div class="circle-selected" *ngIf="selectedDay.toDateString() === currentDay.toDateString(); else notSelected">
-          {{ currentDay.getDate() }}
+        <div class="tile-content">
+          <div class="circle-selected" *ngIf="selectedDay.toDateString() === currentDay.toDateString(); else notSelected">
+            {{ currentDay.getDate() }}
+          </div>
+          <ng-template #notSelected>
+            <h2>{{ currentDay.getDate() }}</h2>
+          </ng-template>
         </div>
-        <ng-template #notSelected>
-          <h2>{{ currentDay.getDate() }}</h2>
-        </ng-template>
       </mat-grid-tile>
     </ng-container>
   </mat-grid-list>
@@ -28,43 +30,40 @@
       <mat-list>
         <ng-container *ngFor="let course of courses">
           <mat-list-item class="courses" *ngIf="course.days[selectedDay.getDay() - 1]">
-            <div class="example-button-container">
-              <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </div>
-
             <div mat-line>
               <b>{{ course.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-
             </div>
             <p mat-line>{{ course.startTime }} - {{ course.endTime }}</p>
             <mat-divider></mat-divider>
           </mat-list-item>
         </ng-container>
-        <mat-list-item></mat-list-item>
-
       </mat-list>
     </mat-card-content>
   </mat-card>
-
-
 </div>
 
 
 
 
 <div class="assignment-container">
-  <h4>Assignments</h4>
-  <ng-container *ngFor="let assignment of assignments">
-    <mat-card *ngIf="equalDays(assignment.dueDay, selectedDay)">
-      <mat-card-title>{{ assignment.title }}</mat-card-title>
-      <mat-card-subtitle>{{ assignment.courseTitle }}</mat-card-subtitle>
-      <mat-card-content>
-        <p>Due: {{ assignment.dueTime }}</p>
-      </mat-card-content>
-    </mat-card>
-  </ng-container>
+  <mat-card class="example-result-card">
+    <mat-card-title fxLayoutAlign="center">Assignments</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+    <mat-card-content>
+      <mat-list>
+        <ng-container *ngFor="let assignment of assignments">
+          <mat-list-item class="assignments" *ngIf="equalDays(assignment.dueDay, selectedDay)">
+            <div mat-line>
+              <b>{{ assignment.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+            </div>
+            <p mat-line>{{ assignment.courseTitle }}</p>
+            <p mat-line>Due: {{ assignment.dueTime }}</p>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div class="fab-container">
