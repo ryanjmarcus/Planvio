@@ -5,6 +5,7 @@ import { NotificationService } from '../_services/notification.service';
 import {Router} from '@angular/router';
 import {CourseService} from '../_services/course.service';
 import {FriendService} from '../_services/friend.service';
+import {AssignmentService} from '../_services/assignment.service';
 
 @Component({
   selector: 'app-settings',
@@ -18,6 +19,7 @@ export class SettingsComponent implements OnInit {
   friends;
   courses;
   username;
+  assignments;
 
   friendUsername;
   friendFirstName;
@@ -28,7 +30,7 @@ export class SettingsComponent implements OnInit {
   isCircular = true;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private userService: UserService, private authService: AuthService, private notifService: NotificationService, private router: Router, private courseService: CourseService, private friendService: FriendService) {
+  constructor(private asService: AssignmentService,private userService: UserService, private authService: AuthService, private notifService: NotificationService, private router: Router, private courseService: CourseService, private friendService: FriendService) {
 
   }
 
@@ -36,6 +38,8 @@ export class SettingsComponent implements OnInit {
     this.firstName = this.authService.currentUserValue.firstName;
     this.lastName = this.authService.currentUserValue.lastName;
     this.username = this.authService.currentUserValue.username;
+
+    this.loadAllAssignments(this.username);
     this.loadAllCourses(this.username);
     this.loadAllFriends(this.username);
 
@@ -58,7 +62,20 @@ export class SettingsComponent implements OnInit {
           this.notifService.showNotif(error.toString(), 'warning');
         });
     }
+  loadAllAssignments(username: string) {
+    this.asService.getAll().subscribe(
+      assignments=> {
+        // tslint:disable-next-line:only-arrow-functions
+        this.assignments = assignments.filter(function(assignment) {
+          return assignment.username === username;
+        });
+        console.log(this.courses);
 
+      },
+      error => {
+        this.notifService.showNotif(error.toString(), 'warning');
+      });
+  }
   loadAllFriends(username: string) {
     this.friendService.getAll().subscribe(
       friends => {
@@ -68,13 +85,17 @@ export class SettingsComponent implements OnInit {
         console.log(this.friends);
         this.friendUsername = this.friends[0].username;
         this.friendFirstName = this.friends[0].firstName;
-        this.friendLastName = this.friends[0].lastName;
+        for (const x of this.friendLastName = this.friends[0].lastName) {
+
+        };
 
       },
       error => {
         this.notifService.showNotif(error.toString(), 'warning');
       });
   }
+
+
   logOut() {
     this.authService.logout();
     this.router.navigate(['/login']);
