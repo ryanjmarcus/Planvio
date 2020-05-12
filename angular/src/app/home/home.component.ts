@@ -22,12 +22,12 @@ export class HomeComponent implements OnInit {
   lastName;
   friends;
   courses;
+  showButton;
 
 
   bgColor = 'cornflowerblue';
   color = 'white';
   isCircular = true;
-  done = false;
 
   constructor(
     private notifService: NotificationService,
@@ -44,16 +44,11 @@ export class HomeComponent implements OnInit {
     this.lastName = this.authService.currentUserValue.lastName;
     this.date = Date();
 
-    if(this.username === 'demo' && !this.done) {
-      this.generateData();
-      this.done = true;
-    }
+    this.showButton = (this.username === 'demo');
 
   }
 
   generateData() {
-
-    console.log('Done')
     // Add Friends
 
     this.friendService.add('dannytorney', 'Danny', 'Torney', 'demo').pipe(first()).subscribe(
