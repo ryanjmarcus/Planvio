@@ -33,14 +33,14 @@
 
 .nav_left {
   position: absolute;
-  top: 180px;
+  top: 220px;
   left: 18px;
   color: white;
 }
 
 .nav_right {
   position: absolute;
-  top: 180px;
+  top: 220px;
   right: 18px;
   color: white;
 }
