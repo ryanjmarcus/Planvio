@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
   lastName;
   friends;
   courses;
-  showButton: boolean = false;
 
 
   bgColor = 'pink';
@@ -43,11 +42,16 @@ export class HomeComponent implements OnInit {
     this.firstName = this.authService.currentUserValue.firstName;
     this.lastName = this.authService.currentUserValue.lastName;
     this.date = Date();
-    this.showButton = (this.username === 'demo');
+
+    if(this.username === 'demo') {
+      this.generateData();
+    }
+
   }
 
   generateData() {
 
+    console.log('Done')
     // Add Friends
 
     this.friendService.add('dannytorney', 'Danny', 'Torney', 'demo').pipe(first()).subscribe(

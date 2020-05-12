@@ -1,5 +1,5 @@
 <div class="current-month-container" style="padding-top: 35px">
-  <h2>{{ currentMonthTitle() }}</h2>
+  <h3>{{ currentMonthTitle() }}</h3>
 </div>
 
 <div class="calendar-container">
@@ -7,7 +7,7 @@
   <mat-grid-list cols="7" rowHeight="fit" gutterSize="3px">
     <ng-container *ngFor="let currentDay of currentWeek">
       <mat-grid-tile (click)="changeSelectedDay(currentDay)">
-        <mat-grid-tile-header fxLayoutAlign="center">{{ currentDay.toDateString().split(' ')[0] }}</mat-grid-tile-header>
+        <mat-grid-tile-header style="background-color: lightpink" fxLayoutAlign="center"><b>{{ currentDay.toDateString().split(' ')[0] }}</b></mat-grid-tile-header>
         <div class="tile-content">
           <div class="circle-selected" *ngIf="selectedDay.toDateString() === currentDay.toDateString(); else notSelected">
             {{ currentDay.getDate() }}
