@@ -3,6 +3,7 @@ import {CourseService} from "../_services/course.service";
 import {NotificationService} from "../_services/notification.service";
 import {Course} from "../_models/course";
 import {AuthService} from "../_services/auth.service";
+import {first} from "rxjs/operators";
 
 
 @Component({
@@ -22,6 +23,14 @@ export class CoursesComponent implements OnInit {
     this.username = this.authService.currentUserValue.username;
     this.loadAllCourses(this.username);
 
+  }
+
+  deleteCourse(course: Course) {
+    console.log(course);
+    this.courseService.delete(course).pipe(first()).subscribe( () => {
+      this.courses = null;
+      this.loadAllCourses(this.username);
+    });
   }
 
   loadAllCourses(username: string) {

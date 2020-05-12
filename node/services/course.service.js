@@ -4,7 +4,8 @@ const Course = db.Course;
 
 module.exports = {
     addCourse,
-    getAllCourses
+    getAllCourses,
+    deleteCourse
 }
 
 async function getAllCourses(){
@@ -29,5 +30,9 @@ async function addCourse(course) {
         await course.save();
         return 'Added!'
     }
+}
+
+async function deleteCourse(course) {
+    return await Course.deleteOne({createdAt: course.createdAt});
 }
 

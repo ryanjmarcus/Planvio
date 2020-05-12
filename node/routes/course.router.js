@@ -7,6 +7,7 @@ const authorize = require('../_helpers/authorize');
 
 router.post('/add', courseController.createCourse);
 router.get('/getAll', courseController.getCourses);
+router.post('/delete', courseController.deleteCourse);
 
 
 module.exports = router;

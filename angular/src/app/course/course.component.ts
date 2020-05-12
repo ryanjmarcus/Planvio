@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Course} from "../_models/course";
 import {FormControl} from "@angular/forms";
 
@@ -9,6 +9,7 @@ import {FormControl} from "@angular/forms";
 })
 export class CourseComponent implements OnInit {
   @Input() course: Course;
+  @Output() deleteCourse: EventEmitter<any> = new EventEmitter();
 
   monday: boolean;
   tuesday: boolean;
