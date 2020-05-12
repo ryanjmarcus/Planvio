@@ -3,16 +3,22 @@
 
   <mat-card class="box">
     <mat-card-header>
-      <mat-card-title>{{firstName}} {{lastName}} </mat-card-title>
-      <img style="height: 100px; width: 100px; margin-bottom: 5px" mat-card-avatar src="http://www.utsa.edu/today/images/students/paulmartinez.jpg">
+
+      <igx-avatar initials="{{firstName.charAt(0) + lastName.charAt(0)}}"
+                  [roundShape]="isCircular"
+                  size="medium"
+                  [bgColor]="bgColor"
+                  [color]="color">
+      </igx-avatar>
+      <p class="name"><b>{{firstName}} {{lastName}}</b> </p>
+
     </mat-card-header>
 
     <form class="example-form">
       <mat-card-content>
-        <br>
-        <div class="info">
-          <p>You are in {{courses.length}} courses</p>
-          <p>You have friends</p>
+        <div class="info" align="center">
+          <p>You are in <b>{{courses.length}}</b> courses</p>
+          <p>You have <b>{{friends.length}}</b> friends</p>
         </div>
       </mat-card-content>
       <div fxLayoutAlign="center center">
