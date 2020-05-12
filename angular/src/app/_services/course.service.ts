@@ -23,7 +23,7 @@ export class CourseService {
       instructorName: addInstructorName,
       instructorImage: addInstructorImage,
       username: addUsername,
-      createdAt: addDate
+      createdAt: new Date()
     };
 
     console.log(course);
