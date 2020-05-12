@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {UserService} from "../_services/user.service";
 import {NotificationService} from "../_services/notification.service";
 import {User} from '../_models/user';
@@ -21,7 +21,7 @@ export interface Section {
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.css']
 })
-export class FriendsComponent implements OnInit {
+export class FriendsComponent implements OnInit, OnChanges {
   friends: Friend[] = [];
   users: User[] = [];
   username;
@@ -39,6 +39,11 @@ export class FriendsComponent implements OnInit {
   ngOnInit() {
     this.username = this.authService.currentUserValue.username;
     this.loadAllFriends(this.username);
+  }
+
+  ngOnChanges() {
+    this.loadAllAssignments(this.friendUsername);
+    this.loadAllCourses(this.friendUsername);
   }
 
   loadAllFriends(username: string) {
@@ -63,6 +68,8 @@ export class FriendsComponent implements OnInit {
     this.friendUsername = username;
     this.friendFirstName = firstName;
     this.friendLastName = lastName;
+    this.loadAllAssignments(this.friendUsername);
+    this.loadAllCourses(this.friendUsername);
   }
 
   private loadAllCourses(username: string) {
