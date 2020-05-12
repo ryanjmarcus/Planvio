@@ -59,7 +59,7 @@ export class LoginComponent {
 
   generateData() {
 
-    this.username = 'demouser';
+    this.username = 'demo';
     this.password = 'planvio';
 
     // Add all users
@@ -163,10 +163,10 @@ export class LoginComponent {
 
   const userSeven = {
     role: Role.admin,
-    firstName: 'Demo',
-    lastName: 'User',
+    firstName: 'John',
+    lastName: 'Smith',
     email: 'demo@gmail.com',
-    username: 'demouser',
+    username: 'demo',
     password: 'planvio'
   };
 

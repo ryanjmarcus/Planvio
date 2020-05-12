@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   generateData() {
-    this.friendService.add('dannytorney', 'Danny', 'Torney', 'demouser').pipe(first()).subscribe(
+    this.friendService.add('dannytorney', 'Danny', 'Torney', 'demo').pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Generated Data', 'Success!');
       }, error => {
