@@ -20,7 +20,7 @@
   <mat-icon class="nav_right" [inline]="true" (click)="nextWeek()">navigate_next</mat-icon>
 </div>
 
-<div class="assignment-container">
+<div class="course-container">
   <ng-container *ngFor="let course of courses">
     <mat-card *ngIf="course.days[selectedDay.getDay() - 1]">
       <mat-card-title>{{ course.title }}</mat-card-title>
@@ -32,7 +32,17 @@
   </ng-container>
 </div>
 
-
+<div class="assignment-container">
+  <ng-container *ngFor="let assignment of assignments; index as assIndex">
+    <mat-card *ngIf="equalDays(assignment.dueDay, selectedDay)">
+      <mat-card-title>{{ assignment.title }}</mat-card-title>
+      <mat-card-subtitle>{{ assignment.courseTitle }}</mat-card-subtitle>
+      <mat-card-content>
+        <p>Due: {{ assignment.dueTime }}</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
 
 <div class="fab-container">
   <button mat-flat-button color="accent"  matTooltip="Add new assignment!" routerLink="/calendar/add">

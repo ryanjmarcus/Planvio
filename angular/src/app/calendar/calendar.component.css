@@ -61,3 +61,13 @@
   align-items: center;
 }
 
+.course-container {
+  float: left;
+  padding: 50px;
+
+}
+
+.assignment-container {
+  float: right;
+  padding: 50px;
+}

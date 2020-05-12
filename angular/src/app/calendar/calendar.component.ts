@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {CourseService} from "../_services/course.service";
 import {AssignmentService} from '../_services/assignment.service';
 import {NotificationService} from "../_services/notification.service";
@@ -11,7 +11,7 @@ import {AuthService} from "../_services/auth.service";
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, OnChanges {
   currentWeek: Date[] = [];
   courses: Course[] = [];
   assignments: Assignment[] = [];
@@ -30,6 +30,11 @@ export class CalendarComponent implements OnInit {
     this.selectedDay = new Date();
   }
 
+  ngOnChanges() {
+    this.sortAssignments();
+    this.sortCourses();
+  }
+
   private loadAllCourses(username: string) {
     this.courseService.getAll().subscribe(
       courses => {
@@ -42,6 +47,7 @@ export class CalendarComponent implements OnInit {
       error => {
         this.notifService.showNotif(error.toString(), 'warning');
       });
+    this.sortCourses();
   }
 
   loadAllAssignments(username: string) {
@@ -56,10 +62,17 @@ export class CalendarComponent implements OnInit {
       error => {
         this.notifService.showNotif(error.toString(), 'warning');
       });
+    this.sortAssignments();
   }
 
   changeSelectedDay(day: Date) {
     this.selectedDay = day;
+  }
+
+  equalDays(day1: Date, day2: Date) {
+    const day_1 = new Date(day1);
+    const day_2 = new Date(day2);
+    return day_1.toDateString() === day_2.toDateString();
   }
 
   nextWeek() {
@@ -95,6 +108,40 @@ export class CalendarComponent implements OnInit {
     for (i = 0; i < 7; i++) {
       this.currentWeek[i] = this.getSunday(d, i);
     }
+  }
+
+  timeStringToDate(time: string) {
+    let date = new Date();
+    let numHours = parseInt(time.split(':')[0], 10);
+    if (time.includes('PM') && numHours !== 12) {
+      numHours += 12;
+    }
+    date.setHours(numHours);
+    date.setMinutes(parseInt(time.split(':')[1].substr(0, 2), 10));
+    return date;
+  }
+
+  compareTimeStrings(a: string, b: string) {
+    let a_date = this.timeStringToDate(a);
+    let b_date = this.timeStringToDate(b);
+    let result = a_date.getHours() > b_date.getHours() ? 1 : a_date.getHours() < b_date.getHours() ? -1 : 0;
+    if(result === 0)
+      result = a_date.getMinutes() > b_date.getMinutes() ? 1 : a_date.getMinutes() < b_date.getMinutes() ? -1 : 0;
+    return result;
+  }
+
+  sortCourses() {
+    this.courses.sort(function(a, b) {
+      return this.compareTimeStrings(a.startTime, b.startTime);
+    });
+    console.log(this.courses);
+  }
+
+  sortAssignments() {
+    this.assignments.sort(function(a, b) {
+      return this.compareTimeStrings(a.dueTime, b.dueTime);
+    });
+    console.log(this.assignments);
   }
 
 
