@@ -1,6 +1,6 @@
 <div class="pa-record-container" style="padding-top: 75px">
   <ng-container *ngFor="let course of courses">
-    <app-course (deleteEvent)="deleteCourse(course)" style="padding: 20px 20px 20px 20px;" [course]="course"></app-course>
+    <app-course (deleteEvent)="deleteCourse($event)" style="padding: 20px 20px 20px 20px;" [course]="course"></app-course>
   </ng-container>
 </div>
 
