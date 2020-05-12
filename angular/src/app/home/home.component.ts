@@ -17,6 +17,15 @@ export class HomeComponent implements OnInit {
 
   username: string;
   date;
+  firstName;
+  lastName;
+  friends;
+  courses;
+
+
+  bgColor = 'pink';
+  color = 'white';
+  isCircular = true;
 
   constructor(
     private notifService: NotificationService,
@@ -28,6 +37,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.authService.currentUserValue.username;
+    this.firstName = this.authService.currentUserValue.firstName;
+    this.lastName = this.authService.currentUserValue.lastName;
     this.date = Date();
   }
 

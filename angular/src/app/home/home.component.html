@@ -1,3 +1,44 @@
+<div style="padding-top: 200px">
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+      <mat-card-header>
+
+        <igx-avatar initials="{{firstName.charAt(0) + lastName.charAt(0)}}"
+                    [roundShape]="isCircular"
+                    size="medium"
+                    [bgColor]="bgColor"
+                    [color]="color">
+        </igx-avatar>
+        <ul style="list-style-type:none; margin-top: 10px;">
+
+          <li class="name"><b>{{firstName}} {{lastName}}</b></li>
+          <li style="color: dimgrey; font-size: 14px">@{{username}}</li>
+
+      </ul>
+
+      </mat-card-header>
+
+      <form class="example-form">
+        <mat-card-content>
+          <div class="info" align="center">
+
+          </div>
+        </mat-card-content>
+        <div fxLayoutAlign="center center">
+          <a routerLink="/calendar"><button style="margin:10px;" mat-raised-button color="accent"><mat-icon style="margin-right:10px;">insert_invitation</mat-icon>Calendar</button></a>
+          <a routerLink="/courses"><button style="margin:10px;" mat-raised-button color="accent"><mat-icon style="margin-right:10px;">calendar_view_day</mat-icon>Courses</button></a>
+          <a routerLink="/friends"><button style="margin:10px;" mat-raised-button color="accent"><mat-icon style="margin-right:10px;">supervised_user_circle</mat-icon>Friends </button></a>
+        </div>
+
+      </form>
+    </mat-card>
+
+  </div>
+</div>
+
+
+
 <div class="fab-container">
   <button mat-flat-button color="accent"  matTooltip="Generate data!" (click)="generateData()">Click to Generate Data
     <i class="material-icons">refresh</i>

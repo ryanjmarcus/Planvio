@@ -10,23 +10,24 @@
                   [bgColor]="bgColor"
                   [color]="color">
       </igx-avatar>
-      <p class="name"><b>{{firstName}} {{lastName}}</b> </p>
+      <ul style="list-style-type:none; margin-top: 10px;">
+
+        <li class="name"><b>{{firstName}} {{lastName}}</b></li>
+        <li style="color: dimgrey; font-size: 14px">@{{username}}</li>
+
+      </ul>
 
     </mat-card-header>
 
     <form class="example-form">
-      <mat-card-content>
+      <mat-card-content style="margin-top: 20px;">
         <div class="info" align="center">
-<<<<<<< HEAD
-          <p>You are in <b>{{courses.length}}</b> courses</p>
-          <p>You have <b>{{friends.length}}</b> friends</p>
-          <p> You have <b>{{assignments.length}}</b> assignments</p>
-=======
           <ul style="list-style-type:none;">
-          <li>You are in <b>{{courses.length}}</b> courses</li>
-          <li>You have <b>{{friends.length}}</b> friends</li>
+          <li>Enrolled in <b>{{courses.length}}</b> courses</li>
+            <li> &nbsp; &nbsp;Struggling on <b>{{assignments.length}}</b> assignments</li>
+          <li>Following <b>{{friends.length}}</b> friends</li>
+
           </ul>
->>>>>>> 229aac61d4d90a4ee3cb8d230b649bdde5b1c878
         </div>
       </mat-card-content>
       <div fxLayoutAlign="center center">
