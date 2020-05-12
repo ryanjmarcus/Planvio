@@ -54,6 +54,16 @@
       <mat-list>
         <ng-container *ngFor="let assignment of assignments">
           <mat-list-item class="assignments" *ngIf="equalDays(assignment.dueDay, selectedDay)">
+            <div class="button-container">
+              <button mat-mini-fab color="primary">
+                <mat-icon routerLink="edit/{{assignment.title}}/{{assignment.dueDay}}/{{assignment.dueTime}}/{{assignment.courseTitle}}/{{assignment.username}}">edit</mat-icon>
+              </button>
+
+              <button mat-mini-fab style="margin-left: 15px">
+                <mat-icon (click)="deleteAssignment(assignment)">delete</mat-icon>
+              </button>
+            </div>
+
             <div mat-line>
               <b>{{ assignment.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </div>

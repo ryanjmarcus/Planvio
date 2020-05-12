@@ -14,7 +14,8 @@ const schema = new Schema({
         dueDay: {type: Date, required: true},
         dueTime: {type: String, required: true},
         courseTitle: {type: String, required: true},
-        username: {type: String, required: true}
+        username: {type: String, required: true},
+        createdAt: {type: Date, required: true}
     }
 );
 

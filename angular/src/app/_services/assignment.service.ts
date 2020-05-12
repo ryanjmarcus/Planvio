@@ -14,14 +14,19 @@ export class AssignmentService {
     return this.http.get<Assignment[]>(`http://localhost:3030/assignment/getAll`);
   }
 
+  delete(assign: Assignment) {
+    return this.http.post(`http://localhost:3030/assignment/delete`, assign);
+  }
 
-add(addTitle: string, addDueDay: Date, addDueTime: string, addCourseTitle: string, addUsername: string) {
+
+add(addTitle: string, addDueDay: Date, addDueTime: string, addCourseTitle: string, addUsername: string, addCreateTime: Date) {
     const assignment = {
       title: addTitle,
       dueDay: addDueDay,
       dueTime: addDueTime,
       courseTitle: addCourseTitle,
-      username: addUsername
+      username: addUsername,
+      createdAt: addCreateTime
     };
 
     console.log(assignment);

@@ -30,6 +30,7 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
 
   { path: 'calendar', component: CalendarComponent},
   { path: 'calendar/add', component: AddAssignmentComponent},
+  { path: 'calendar/edit/:title/:dueDay/:dueTime/:courseTitle/:username', component: AddAssignmentComponent},
 
 
   { path: 'friends', component: FriendsComponent},

@@ -89,3 +89,9 @@
   overflow-x: hidden;
   padding: 50px;
 }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}

@@ -4,7 +4,8 @@ const Assignment = db.Assignment;
 
 module.exports = {
     addAssignment,
-    getAllAssignments
+    getAllAssignments,
+    deleteAssignment
 }
 
 async function getAllAssignments(){
@@ -14,11 +15,24 @@ async function getAllAssignments(){
 
 
 async function addAssignment(assignment) {
-    console.log(assignment);
+    if (await Assignment.findOne({username: assignment.username, createdAt: assignment.createdAt})) {
+        await Assignment.updateOne({
+            username: assignment.username,
+            createdAt: assignment.createdAt
+        }, {$set: {title: assignment.title, dueDay: assignment.dueDay, dueTime: assignment.dueTime, courseTitle: assignment.courseTitle}})
+        return 'Edited!';
+    } else {
 
-    assignment = new Assignment(assignment)
+        console.log(assignment);
 
-    // save the record
-    await assignment.save();
-    return 'Added!'
+        assignment = new Assignment(assignment)
+
+        // save the record
+        await assignment.save();
+        return 'Added!'
+    }
+}
+
+async function deleteAssignment(assignment) {
+    return await Assignment.deleteOne(assignment);
 }

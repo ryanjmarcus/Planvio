@@ -7,6 +7,7 @@ const authorize = require('../_helpers/authorize');
 
 router.post('/add', assignmentController.createAssignment);
 router.get('/getAll', assignmentController.getAssignments);
+router.post('/delete', assignmentController.deleteAssignment);
 
 
 module.exports = router;

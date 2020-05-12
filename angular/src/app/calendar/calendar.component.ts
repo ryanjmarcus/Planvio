@@ -49,6 +49,11 @@ export class CalendarComponent implements OnInit, OnChanges {
       });
   }
 
+  deleteAssignment(assign: Assignment) {
+    this.assignmentService.delete(assign);
+    this.assignments = this.assignments.splice(this.assignments.indexOf(assign), 1);
+  }
+
   loadAllAssignments(username: string) {
     this.assignmentService.getAll().subscribe(
       assignments => {

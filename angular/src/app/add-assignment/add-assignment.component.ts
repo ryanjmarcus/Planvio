@@ -6,6 +6,7 @@ import {NotificationService} from "../_services/notification.service";
 import {AuthService} from "../_services/auth.service";
 import {AssignmentService} from '../_services/assignment.service';
 import {User} from "../_models/user";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-add-assignment',
@@ -18,8 +19,9 @@ export class AddAssignmentComponent implements OnInit {
   buttonName = 'Add';
   courses;
   username;
+  createdAt: Date;
 
-  constructor(private formBuilder: FormBuilder, private courseService: CourseService, private assignmentService: AssignmentService, private notifService: NotificationService, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private courseService: CourseService, private assignmentService: AssignmentService, private notifService: NotificationService, private authService: AuthService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -33,7 +35,25 @@ export class AddAssignmentComponent implements OnInit {
 
     });
 
-  }
+    this.route.params.subscribe(params => {
+      if (params.title) {
+        console.log(params.title);
+        this.assignmentForm.setValue({
+          title: params.title,
+          dueTime: params.dueTime,
+          courseTitle: params.courseTitle
+        });
+
+        this.buttonName = 'Save';
+        this.dueDay = new FormControl({value: new Date(params.dueDay), disabled: false});
+
+      }
+    });
+
+
+
+
+}
 
   loadAllCourses(username: string) {
     this.courseService.getAll().subscribe(
@@ -53,7 +73,7 @@ export class AddAssignmentComponent implements OnInit {
     console.log(this.assignmentForm.value);
     console.log(this.dueDay.value);
 
-    this.assignmentService.add(this.assignmentForm.value.title, this.dueDay.value, this.assignmentForm.value.dueTime, this.assignmentForm.value.courseTitle, this.username).pipe(first()).subscribe(
+    this.assignmentService.add(this.assignmentForm.value.title, this.dueDay.value, this.assignmentForm.value.dueTime, this.assignmentForm.value.courseTitle, this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif(resp, 'response');
       }, error => {
