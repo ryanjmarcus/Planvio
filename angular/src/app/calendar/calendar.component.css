@@ -11,7 +11,8 @@
 }
 
 .mat-grid-tile-header {
-  padding-bottom: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .mat-card {
@@ -32,33 +33,26 @@
 
 .nav_left {
   position: absolute;
-  top: 235px;
+  top: 180px;
   left: 18px;
   color: white;
 }
 
 .nav_right {
   position: absolute;
-  top: 235px;
+  top: 180px;
   right: 18px;
   color: white;
 }
 
 .circle-selected {
-  width: 80px;
-  height: 80px;
-  border-radius: 75%;
-  color: #fff;
+  color: #ff4081;
   text-align: center;
-  background: #3F51B5;
+
 
   font-weight: 300;
-  font-size: 3.00rem;
-  letter-spacing: -0.03125rem;
-  text-transform: none;
-  line-height: 4.4375rem;
-  margin-top: 1.75rem;
-  margin-bottom: 1.75rem;
+  font-size: 3.75rem;
+
 }
 
 .fab-container {

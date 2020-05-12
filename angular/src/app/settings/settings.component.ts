@@ -43,7 +43,7 @@ export class SettingsComponent implements OnInit {
     this.loadAllCourses(this.username);
     this.loadAllFriends(this.username);
 
-    this.bgColor = 'pink';
+    this.bgColor = 'cornflowerblue';
     this.color = 'white';
     this.isCircular = true;
     }
