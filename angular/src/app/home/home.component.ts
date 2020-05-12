@@ -112,21 +112,31 @@ export class HomeComponent implements OnInit {
 
     const dateOne = new Date();
 
-    this.assignmentService.add('Binary Bomb', dateOne, '8:00 PM', 'CS 2506: Intro to Computer Org II', this.username).pipe(first()).subscribe(
+    this.assignmentService.add('Binary Bomb', dateOne, '8:00 PM', 'CS 2506: Intro to Computer Org II', this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Assignment', 'response');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    this.assignmentService.add('Final Group Deliverable', dateOne, '1:45 PM', 'CS 3754: Cloud Software Dev', this.username).pipe(first()).subscribe(
+    this.assignmentService.add('Final Group Deliverable', dateOne, '1:45 PM', 'CS 3754: Cloud Software Dev', this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Assignment', 'response');
       }, error => {
         this.notifService.showNotif(error);
       });
 
-    this.assignmentService.add('Final Exam', dateOne, '11:55 PM', 'CS 3724: Human Comp Interaction', this.username).pipe(first()).subscribe(
+    this.assignmentService.add('Final Exam', dateOne, '11:55 PM', 'CS 3724: Human Comp Interaction', this.username, new Date()).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
+
+    const dateTwo = new Date();
+    dateTwo.setDate(dateOne.getDate() + 1);
+
+    this.assignmentService.add('Final App Design', dateTwo, '11:55 PM', 'CS 3714: Mobile Software Development', this.username, new Date()).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Assignment', 'response');
       }, error => {
