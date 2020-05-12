@@ -4,7 +4,7 @@ import { AuthService } from '../_services/auth.service';
 import { NotificationService } from '../_services/notification.service';
 import {Router} from '@angular/router';
 import {CourseService} from '../_services/course.service';
-import {FriendService} from "../_services/friend.service";
+import {FriendService} from '../_services/friend.service';
 
 @Component({
   selector: 'app-settings',
@@ -42,12 +42,12 @@ export class SettingsComponent implements OnInit {
     this.bgColor = 'pink';
     this.color = 'white';
     this.isCircular = true;
-
     }
 
     loadAllCourses(username: string) {
       this.courseService.getAll().subscribe(
         courses => {
+          // tslint:disable-next-line:only-arrow-functions
           this.courses = courses.filter(function(course) {
             return course.username === username;
           });
