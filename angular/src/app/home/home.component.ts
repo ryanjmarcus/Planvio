@@ -267,6 +267,39 @@ export class HomeComponent implements OnInit {
        });
 
 
+     // Add Ryan Courses
+
+
+     this.courseService.add('COMM 2004: Public Speaking', [false, true, false, true, false], '9:00 AM', '10:15 AM', 'Claire Boor', encodeURIComponent('https://liberalarts.vt.edu/content/liberalarts_vt_edu/en/departments-and-schools/department-of-communication/faculty/claire-hall/jcr:content/content/vtcontainer_13130399/vtcontainer-content/vtmulticolumn/vt-items_0/adaptiveimage.transform/xl-medium/image.jpg'), 'ryanmarcus', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.courseService.add('MATH 4705: Stat for Engineers', [true, false, true, false, true], '8:00 AM', '8:50 AM', 'Xinwei Deng', encodeURIComponent('https://www.stat.vt.edu/content/stat_vt_edu/en/people/stat-faculty/jcr:content/content/vtmulticolumn/vt-items_0/adaptiveimage.transform/l-medium/image.jpg'), 'ryanmarcus', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Course', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     // Add Ryan Assignments
+
+     this.assignmentService.add('Probability Assignment', dateOne, '9:30 PM', 'MATH 4705: Stat for Engineers', 'ryanmarcus', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
+     this.assignmentService.add('Speech 5: Life Story ', dateTwo, '9:00 AM', 'COMM 2004: Public Speaking', 'ryanmarcus', new Date()).pipe(first()).subscribe(
+       resp => {
+         this.notifService.showNotif('Added Assignment', 'response');
+       }, error => {
+         this.notifService.showNotif(error);
+       });
+
 
 
 
