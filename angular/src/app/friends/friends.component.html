@@ -44,22 +44,8 @@
       <mat-card-title fxLayoutAlign="center">{{friendFirstName}} {{friendLastName}}</mat-card-title>
       <mat-card-subtitle fxLayoutAlign="center">@{{friendUsername}}</mat-card-subtitle>
     </mat-card>
-    <mat-card style="margin-top: 10px">
-      <mat-card-title>Courses</mat-card-title>
-        <mat-list>
-          <ng-container *ngFor="let course of courses">
-            <mat-list-item class="courses">
-              <div mat-line>
-                <b>{{ course.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-              </div>
-              <p mat-line>{{ course.instructorName }} </p>
-              <p mat-line>{{ course.startTime }} - {{ course.endTime }}</p>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-          </ng-container>
-        </mat-list>
-    </mat-card>
-    <mat-card style="margin-top: 10px; margin-bottom: 40px">
+
+    <mat-card style="margin-top: 10px;">
       <mat-card-title>Assignments</mat-card-title>
         <mat-list>
           <ng-container *ngFor="let assignment of assignments">
@@ -76,6 +62,21 @@
           </ng-container>
 
         </mat-list>
+    </mat-card>
+    <mat-card style="margin-top: 10px; margin-bottom: 40px">
+      <mat-card-title>Courses</mat-card-title>
+      <mat-list>
+        <ng-container *ngFor="let course of courses">
+          <mat-list-item class="courses">
+            <div mat-line>
+              <b>{{ course.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+            </div>
+            <p mat-line>{{ course.instructorName }} </p>
+            <p mat-line>{{ course.startTime }} - {{ course.endTime }}</p>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
     </mat-card>
 
 
