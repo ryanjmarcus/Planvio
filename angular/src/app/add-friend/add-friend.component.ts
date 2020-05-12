@@ -73,11 +73,6 @@ export class AddFriendComponent implements OnInit {
   }
 
 
-  actionMethod($event: MouseEvent) {
-    ($event.target as HTMLButtonElement).disabled = true;
-    // Do actions.
-  }
-
   addFriend(addUsername: string, addFirstName: string, addLastName: string) {
     this.friendService.add(addUsername, addFirstName, addLastName, this.username).pipe(first()).subscribe(
       resp => {

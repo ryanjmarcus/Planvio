@@ -14,6 +14,7 @@ async function getAllCourses(){
 
 
 async function addCourse(course) {
+
     console.log(course);
 
     course = new Course(course)

@@ -21,6 +21,9 @@ export class FriendsComponent implements OnInit {
   friends: Friend[] = [];
   users: User[] = [];
   username;
+  friendUsername;
+  friendFirstName;
+  friendLastName;
 
   assignments = [{class: 'CS3754', due: 'May 20th, 2020', name: 'Cloud Project'},
     {class: 'CS3714', due: 'May 20th, 2020', name: 'Final App'}];
@@ -57,6 +60,7 @@ export class FriendsComponent implements OnInit {
   ngOnInit() {
     this.username = this.authService.currentUserValue.username;
     this.loadAllFriends(this.username);
+
   }
 
   loadAllFriends(username: string) {
@@ -66,11 +70,20 @@ export class FriendsComponent implements OnInit {
           return friend.addedBy === username;
         });
         console.log(this.friends);
+        this.friendUsername = this.friends[0].username;
+        this.friendFirstName = this.friends[0].firstName;
+        this.friendLastName = this.friends[0].lastName;
 
       },
       error => {
         this.notifService.showNotif(error.toString(), 'warning');
       });
+  }
+
+  setSelectedFriend(username: string, firstName: string, lastName: string) {
+    this.friendUsername = username;
+    this.friendFirstName = firstName;
+    this.friendLastName = lastName;
   }
 
 

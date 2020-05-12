@@ -2,13 +2,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {AuthService} from './auth.service';
 import {Friend} from '../_models/friend';
 
 
 @Injectable({ providedIn: 'root' })
 export class FriendService {
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get<Friend[]>(`http://localhost:3030/friend/getAll`);

@@ -13,7 +13,7 @@
                 <mat-icon>delete</mat-icon>
               </button>
 
-              <button mat-mini-fab style="margin-left: 15px">
+              <button mat-mini-fab style="margin-left: 15px" (click)="setSelectedFriend(friend.username, friend.firstName, friend.lastName)">
                 <mat-icon>arrow_forward</mat-icon>
               </button>
             </div>
@@ -40,23 +40,11 @@
 <div class="split right">
   <div class ='main-div'>
     <mat-card class="example-result-card">
-      <mat-card-title fxLayoutAlign="center">Danny Torney</mat-card-title>
-      <mat-card-subtitle fxLayoutAlign="center">@dannytorney</mat-card-subtitle>
+      <mat-card-title fxLayoutAlign="center">{{friendFirstName}} {{friendLastName}}</mat-card-title>
+      <mat-card-subtitle fxLayoutAlign="center">@{{friendUsername}}</mat-card-subtitle>
       <mat-card-content>
   <mat-list>
-    <div mat-subheader>Folders</div>
-    <mat-list-item *ngFor="let folder of folders">
-      <mat-icon mat-list-icon>folder</mat-icon>
-      <div mat-line>{{folder.name}}</div>
-      <div mat-line> {{folder.updated | date}} </div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <div mat-subheader>Notes</div>
-    <mat-list-item *ngFor="let note of notes">
-      <mat-icon mat-list-icon>note</mat-icon>
-      <div mat-line>{{note.name}}</div>
-      <div mat-line> {{note.updated | date}} </div>
-    </mat-list-item>
+
   </mat-list>
       </mat-card-content>
     </mat-card>

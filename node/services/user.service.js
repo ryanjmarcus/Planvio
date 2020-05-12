@@ -51,6 +51,7 @@ async function addUser(userParam) {
 
 
     const user = new User(userParam);
+    console.log(user);
 
     user.caloriegoal = 0
     user.minutegoal = 0

@@ -16,6 +16,7 @@ export class SettingsComponent implements OnInit {
   lastName;
   friends;
   courses;
+  username;
 
   // tslint:disable-next-line:max-line-length
   constructor(private userService: UserService, private authService: AuthService, private notifService: NotificationService, private router: Router, private courseService: CourseService) {
@@ -25,18 +26,24 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     this.firstName = this.authService.currentUserValue.firstName;
     this.lastName = this.authService.currentUserValue.lastName;
-    this.courses = this.courseService.getAll().subscribe(
-      courses => {
-        this.courses = courses.filter(function(course) {
-          return course.username === this.authService.currentUserValue.username;
-        });
-        console.log(this.courses);
+    this.username = this.authService.currentUserValue.username;
+    this.loadAllCourses(this.username);
 
-      },
-      error => {
-        this.notifService.showNotif(error.toString(), 'warning');
-      });
-  }
+    }
+
+    loadAllCourses(username: string) {
+      this.courseService.getAll().subscribe(
+        courses => {
+          this.courses = courses.filter(function (course) {
+            return course.username === username;
+          });
+          console.log(this.courses);
+
+        },
+        error => {
+          this.notifService.showNotif(error.toString(), 'warning');
+        });
+    }
 
   logOut() {
     this.authService.logout();
