@@ -8,6 +8,7 @@ import {User} from "../_models/user";
 import {AuthService} from "../_services/auth.service";
 import {FriendService} from "../_services/friend.service";
 import {CourseService} from "../_services/course.service";
+import {AssignmentService} from "../_services/assignment.service";
 
 
 @Component({ templateUrl: 'home.component.html' ,
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
   lastName;
   friends;
   courses;
+  showButton: boolean = false;
 
 
   bgColor = 'pink';
@@ -32,6 +34,7 @@ export class HomeComponent implements OnInit {
     private authService: AuthService,
     private friendService: FriendService,
     private courseService: CourseService,
+    private assignmentService: AssignmentService
   ) {
   }
 
@@ -40,6 +43,7 @@ export class HomeComponent implements OnInit {
     this.firstName = this.authService.currentUserValue.firstName;
     this.lastName = this.authService.currentUserValue.lastName;
     this.date = Date();
+    this.showButton = (this.username === 'demo');
   }
 
   generateData() {
@@ -76,7 +80,7 @@ export class HomeComponent implements OnInit {
         this.notifService.showNotif(error);
       });
 
-    this.courseService.add('CS 3724: Human Comp Interaction', [true, false, true, false, false], '4:00 PM', '5:15 PM', 'Andrew Kulak', encodeURIComponent('https://www.andrewkulak.com/images/avatar.jpg'), 'demo', this.date).pipe(first()).subscribe(
+    this.courseService.add('CS 3724: Human Comp Interaction', [false, true, false, true, false], '4:00 PM', '5:15 PM', 'Andrew Kulak', encodeURIComponent('https://www.andrewkulak.com/images/avatar.jpg'), 'demo', this.date).pipe(first()).subscribe(
       resp => {
         this.notifService.showNotif('Added Course', 'response');
       }, error => {
@@ -103,6 +107,32 @@ export class HomeComponent implements OnInit {
       }, error => {
         this.notifService.showNotif(error);
       });
+
+    // Add Assignments
+
+    const dateOne = new Date();
+
+    this.assignmentService.add('Binary Bomb', dateOne, '8:00 PM', 'CS 2506: Intro to Computer Org II', this.username).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
+
+    this.assignmentService.add('Final Group Deliverable', dateOne, '1:45 PM', 'CS 3754: Cloud Software Dev', this.username).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
+
+    this.assignmentService.add('Final Exam', dateOne, '11:55 PM', 'CS 3724: Human Comp Interaction', this.username).pipe(first()).subscribe(
+      resp => {
+        this.notifService.showNotif('Added Assignment', 'response');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
+
   }
 }
 
