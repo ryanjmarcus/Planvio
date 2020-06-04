@@ -60,7 +60,7 @@ The "Generate User/Data" buttons below are for demo purposes only.
    
 ## How to Run
 * Mongo
-  * Command: 'Mongod'
+  * Command: 'mongod --dbpath ~/documents/data/db'
 * Node
   * Navigate inside Node folder
   * Command: 'node app.js'
