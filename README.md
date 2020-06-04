@@ -38,9 +38,9 @@ The "Generate User/Data" buttons seen in the images are for demo purposes only.
 ![Settings](images/settings.png)
 
 ## Members
-* Danny Torney
-* Drew Perry
-* Ryan Marcus
+* [Danny Torney](github.com/dtorn)
+* [Drew Perry](github.com/drewperry)
+* [Ryan Marcus](github.com/ryanjmarcus)
 
 ## Score
 * 400/400
