@@ -4,6 +4,9 @@ Planv.io is a web application for students to track their personal and friends' 
 ## Description
 During CS 3754 (Full Stack Web Development), we were tasked with coming up with an open-ended final project to show off our skills learned from the course. Our group needed to meet outside of class, but figuring out when everyone was available was difficult and aggravating. We decided to build Planv.io to make tracking schoolwork and keeping an eye out on your friends a lot easier.
 
+## Notes
+The "Generate User/Data" buttons below are for demo purposes only.
+
 ## Images
 ### Home
 ![Home](images/home.png)
@@ -54,6 +57,16 @@ During CS 3754 (Full Stack Web Development), we were tasked with coming up with 
    * Express
 * Database
    * Mongo
+   
+## How to Run
+* Mongo
+  * Command: 'Mongod'
+* Node
+  * Navigate inside Node folder
+  * Command: 'node app.js'
+* Angular
+  * Navigate inside Angular folder
+  * Command: 'ng serve'
 
  
 
