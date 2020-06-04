@@ -56,8 +56,9 @@ The "Generate User/Data" buttons seen in the images are for demo purposes only.
    * Node
 * Middleware
    * Express
+   * JWT
 * Database
-   * Mongo
+   * MongoDB
    
 ## How to Run
 * Mongo
