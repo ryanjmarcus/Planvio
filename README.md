@@ -49,7 +49,8 @@ The "Generate User/Data" buttons seen in the images are for demo purposes only.
 ### Front End
 * Angular  
   * HTML/CSS/TS
-  * Google Material Theme
+* Theme
+  * Google Material
 ### Back End
 * Server-side 
    * Node
