@@ -5,12 +5,12 @@ Planv.io is a web application for students to track their personal and friends' 
 During CS 3754 (Full Stack Web Development), we were tasked with coming up with an open-ended final project to show off our skills that we learned for the semester. Our group needed to meet outside of class, but figuring out when everyone was 'free' was long and tedious. That's how Planv.io came about.
 
 ## Images
+### Home
+![Home](images/home.png)
 ### Login
 ![Login](images/login.png)
 ### Register
 ![Register](images/register.png)
-### Home
-![Home](images/home.png)
 ### Calendar
 ![Calendar](images/calendar.png)
 ### Add Assigment
