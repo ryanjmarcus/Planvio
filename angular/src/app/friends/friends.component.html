@@ -1,7 +1,7 @@
 <div class="split left">
   <div class ='main-div'>
     <mat-card class="example-result-card">
-      <mat-card-title style="text-align:center;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friends <span style="float:right;"> <button mat-flat-button color="accent"  matTooltip="Add new course!" routerLink="/friends/add">
+      <mat-card-title style="text-align:center;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friends <span style="float:right;"> <button mat-flat-button color="accent"  matTooltip="Add new friend!" routerLink="/friends/add">
     <i class="material-icons">add</i>
   </button> </span></mat-card-title>
       <mat-card-subtitle fxLayoutAlign="center">
@@ -10,9 +10,6 @@
       <mat-card-content>
         <mat-list>
           <mat-list-item class="users" *ngFor="let friend of friends">
-
-
-
 
               <button mat-mini-fab color="primary" (click)="setSelectedFriend(friend.username, friend.firstName, friend.lastName)">
                 <mat-icon>arrow_forward</mat-icon>
