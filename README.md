@@ -2,7 +2,7 @@
 Planv.io is a web application for students to track their personal and friends' assignments, schedule, and workload.
 
 ## Description
-During CS 3754 (Full Stack Web Development), we were tasked with coming up with an open-ended final project to show off our skills learned from the course. Our group needed to meet outside of class, but figuring out when everyone was available was difficult and aggravating. We decided to build Planv.io to make tracking schoolwork and keeping an eye out on your friends a lot easier.
+During CS 3754 (Full Stack Web Development), we were tasked with coming up with an open-ended final project to display our skills learned during the course. Our group needed to meet outside of class, but figuring out when everyone was available was difficult and aggravating. We decided to build Planv.io to make tracking schoolwork and keeping an eye out on your friends a lot easier.
 
 ## Notes
 The "Generate User/Data" buttons seen in the images are for demo purposes only.
