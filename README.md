@@ -15,10 +15,14 @@ During CS 3754 (Full Stack Web Development), we were tasked with coming up with 
 ![Calendar](images/calendar.png)
 ### Add Assigment
 ![Add Assignment](images/add-assignment.png)
+### Edit Assignment
+![Edit Assignment](images/edit-assignment.png)
 ### Courses
 ![Courses](images/courses.png)
 ### Add Course
 ![Add Course](images/add-course.png)
+### Edit Course
+![Edit Course](images/edit-course.png)
 ### Friends
 ![Friends](images/friends.png)
 ### Add Friend
