@@ -6,9 +6,9 @@ During CS 3754 (Full Stack Web Development), we were tasked with coming up with 
 
 ## Images
 ### Login
-![Login](login.png)
+![Login](images/login.png)
 ### Register
-![Register](register.png)
+![Register](images/register.png)
 
 ## Members
 * Danny Torney
