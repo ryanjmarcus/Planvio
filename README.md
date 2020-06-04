@@ -18,6 +18,7 @@ During CS 3754 (Full Stack Web Development), we were tasked with coming up with 
 ### Front End
 * Angular  
   * HTML/CSS/TS
+  * Google Material Theme
 ### Back End
 * Server-side 
    * Node
